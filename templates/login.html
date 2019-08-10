@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block body %}
+<section id="login">
+    <div class="form-container">
+        <div class="form-inner">
+                <h1 class="heading-primary">Login</h1>
+                <form method="POST" action="">
+                    {% with messages = get_flashed_messages() %} 
+                    {% if messages %} {% for message in messages %}
+                    <p class="flashMessage">{{ message }}</p>
+                    {% endfor %} {% endif %} 
+                    {% endwith %}
+                    <div class="form-input">
+                        {{ form.hidden_tag() }}
+                        {{ form.username(size=32, autofocus=true, required=true, placeholder="Enter username") }}
+                    </div>
+                    <div class="form-input">
+                        {{ form.password(size=32, required=true, placeholder="Enter password") }}
+                    </div>
+                    <div class="pb-4">Not registered? Click <a href="{{ url_for('register') }}">here.</a></div>
+                    <button class="btn btn-white" type="submit" name="action">Submit</button>
+               </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
