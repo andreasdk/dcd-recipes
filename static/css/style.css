@@ -106,3 +106,45 @@ body {
   padding-top: 2rem;
 }
 
+/***Navbar**/
+
+
+/**Changes navbar toggler background to circle**/
+.navbar-toggler {
+background-color: var(--backgroundcolor);
+border-radius: 50%;
+height: 3.5rem;
+width: 3.5rem;
+}
+
+.navbar-light .navbar-nav .nav-link:link,
+.navbar-light .navbar-nav .nav-link:visited {
+background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+background-size: 220%;
+color: var(--lightcolor);
+display: inline-block;
+font-size: 2rem;
+font-weight: 300;
+padding: 1rem 2.75rem;
+text-decoration: none;
+text-transform: uppercase;
+transition: all .4s;
+}
+
+
+/**Navbar link items animation on hover**/
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:active {
+background-position: 100%;
+color: var(--secondarycolor);
+transform: translateX(.5rem);
+}
+
+
+/**Navbar icons display and margin**/
+
+.nav-link span {
+display: inline-block;
+margin-right: 1.5rem;
+}
