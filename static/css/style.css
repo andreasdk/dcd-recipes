@@ -193,4 +193,17 @@ margin-right: 1.5rem;
   color: var(--secondarycolor);
 }
 
-
+/**Footer**/
+/**Centering footer items, and giving footer minimum height**/
+.footer {
+  background-color: var(--primarycolor);
+  display: flex;
+  justify-content: center;
+  min-height: 10rem;
+}
+/**Setting footer items color, size and top padding**/
+.footer-icon a i {
+  color: var(--lightcolor);
+  font-size: 4rem;
+  padding-top: 3rem;
+}
