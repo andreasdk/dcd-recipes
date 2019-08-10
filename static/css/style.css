@@ -9,4 +9,100 @@
   --backgroundcolor: rgb(244, 222, 203);
   --primaryfont: 'PT Sans', sans-serif;
   --secondaryfont: 'Playfair Display', serif;
-} 
+}
+
+/*Root Element Styles*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--backgroundcolor);
+  font-family: var(--primaryfont);
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+
+/*Headings*/
+
+.heading-primary {
+  color: var(--lightcolor);
+  margin-bottom: 6rem;
+  margin-left: 2.25rem;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  margin-top: 12rem;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 1.45rem;
+  margin-left: -1.5rem;
+}
+
+.heading-secondary {
+  color: var(--primarycolor);
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.heading-tertiary {
+  color: var(--secondarycolor);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.heading-form {
+  color: var(--lightcolor);
+  font-size: 3.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+
+/*Utility Classes*/
+
+.u-center-text {
+  text-align: center;
+}
+
+.u-margin-bottom-large {
+  margin-bottom: 8rem;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 2rem;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem;
+}
+
+.u-padding-bottom-small {
+  padding-bottom: 3rem;
+}
+
+.u-padding-top {
+  padding-top: 2rem;
+}
+
