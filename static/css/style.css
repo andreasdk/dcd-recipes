@@ -148,3 +148,49 @@ transform: translateX(.5rem);
 display: inline-block;
 margin-right: 1.5rem;
 }
+
+/***Header**/
+
+.header {
+  background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.8), rgba(90, 85, 96, 0.8)), url(../img/hero.jpg);
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+}
+
+
+/**Centres the text box horizontally**/
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+
+/**Hero button**/
+
+.btn {
+  border-radius: 10rem;
+  display: inline-block;
+  font-size: 1.5rem;
+  padding: 1.5rem 4rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+
+/**Gives slight box-shadow on hover**/
+
+.btn:hover {
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: var(--secondarycolor);
+}
+
+
