@@ -9,13 +9,13 @@
                 <p class="flashMessage">{{ message }}</p>
                     {% endfor %} {% endif %} {% endwith %}
                 <div class="form-input">
-                    {{ form.hidden_tag() }} {{ form.username(size=32, autofocus=true, required=true, placeholder="New username") }}
+                    {{ form.hidden_tag() }} {{ form.username(autofocus=true, class="form-input-field", required=true, placeholder="New username") }}
                 </div>
                 <div class="form-input">
-                    {{ form.password(size=32, required=true, placeholder="Enter password") }}
+                    {{ form.password(required=true, class="form-input-field", placeholder="Enter password") }}
                 </div>
-                <div class="pb-4">Already registered? Click <a href="{{ url_for('login') }}">here.</a></div>
-                <button class="btn btn-white" type="submit" name="action">Submit</button>
+                <div class="pb-4 text-white">Already registered? Click <a href="{{ url_for('login') }}" class="text-white">here.</a></div>
+                <button class="btn btn-white btn-block" type="submit" name="action">Submit</button>
             </form>
         </div>
     </div>
