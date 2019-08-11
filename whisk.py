@@ -8,8 +8,8 @@ app = Flask(__name__)
 
 # ENVIRONMENT VARIABLES (.env)
 app.config["MONGO_DBNAME"] = "whisk"
-app.config["MONGO_URI"] = os.getenv("MONGO_URI")
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+app.config["MONGO_URI"] = 'mongodb+srv://root:root@cluster0-v3hwb.mongodb.net/whisk?retryWrites=true&w=majority'
+app.config["SECRET_KEY"] = '5791628bb0b13ce0c676dfde280ba245'
 
 mongo = PyMongo(app)
 
