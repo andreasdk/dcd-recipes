@@ -47,7 +47,7 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 #User login function
-def user_login():
+def login():
     # Check is already logged in
     if 'logged_in' in session:  
         return redirect(url_for('home'))
@@ -65,9 +65,15 @@ def user_login():
                 session['logged_in'] = True
                 return redirect(url_for('home'))
             flash('Sorry incorrect password!')
-            return redirect(url_for('user_login'))
+            return redirect(url_for('login'))
     return render_template('login.html', form=form, title='Login')
 
+@app.route('/logout')
+# Ends session and redirects to homepage
+def logout():
+    # Ends session
+    session.clear()  
+    return redirect(url_for('home'))
 
 if __name__ == '__main__':
     app.run(debug=True)
