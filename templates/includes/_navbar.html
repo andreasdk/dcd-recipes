@@ -12,11 +12,17 @@
             </li>
         </ul>
         <ul class="navbar-nav">
+            {% if 'username' in session %}
             <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                <a class="nav-link" href="/login"><span><i class="fas fa-sign-in-alt"></i></span>Login</a>
+                <a class="nav-link" href="{{ url_for('logout') }}"><span><i class="fas fa-sign-out-alt"></i></span>Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                <a class="nav-link" href="{{ url_for('login') }}"><span><i class="fas fa-sign-in-alt"></i></span>Login</a>
             </li>
             <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                <a class="nav-link" href="/register"><span><i class="fas fa-user-plus"></i></span>Register</a>
+                <a class="nav-link" href="{{ url_for('register') }}"><span><i class="fas fa-user-plus"></i></span>Register</a>
             </li>
+            {% endif %}
     </div>
 </nav>
