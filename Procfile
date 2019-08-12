@@ -1,1 +1,1 @@
-web: python whisk.py
+web: python run.py
