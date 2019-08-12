@@ -7,15 +7,15 @@
                 <form method="POST" action="">
                         {{ form.hidden_tag() }}
                     <div class="form-input">
-                            {% if form.email.errors %}
-                            {{ form.email(class="form-control form-input is-invalid") }}
+                            {% if form.username.errors %}
+                            {{ form.username(class="form-control form-input is-invalid") }}
                             <div class="invalid-feedback">
-                                {% for error in form.email.errors %}
+                                {% for error in form.username.errors %}
                                     <span>{{ error }}</span>
                                 {% endfor %}
                             </div>
                         {% else %}
-                        {{ form.email(autofocus=true, class="form-input-field", required=true, placeholder="Enter email") }}
+                        {{ form.username(autofocus=true, class="form-input-field", required=true, placeholder="Enter username") }}
                         {% endif %}
                     </div>
                     <div class="form-input">
