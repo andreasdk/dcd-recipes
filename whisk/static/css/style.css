@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans|Playfair+Display&display=swap');
+
+/*CSS Variables*/
+
+:root {
+  --primarycolor: #7768ae;
+  --secondarycolor: #3bb273;
+  --lightcolor: #e1bc29;
+  --backgroundcolor: rgb(244, 222, 203);
+  --primaryfont: 'PT Sans', sans-serif;
+  --secondaryfont: 'Playfair Display', serif;
+}
+
+/*Root Element Styles*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--backgroundcolor);
+  font-family: var(--primaryfont);
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+
+/*Headings*/
+
+.heading-primary {
+  color: var(--lightcolor);
+  margin-bottom: 6rem;
+  margin-left: 2.25rem;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  margin-top: 12rem;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 1.45rem;
+  margin-left: -1.5rem;
+}
+
+.heading-secondary {
+  color: var(--primarycolor);
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.heading-tertiary {
+  color: var(--secondarycolor);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.heading-form {
+  color: var(--lightcolor);
+  font-size: 3.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+
+/*Utility Classes*/
+
+.u-center-text {
+  text-align: center;
+}
+
+.u-margin-bottom-large {
+  margin-bottom: 8rem;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 2rem;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem;
+}
+
+.u-padding-bottom-small {
+  padding-bottom: 3rem;
+}
+
+.u-padding-top {
+  padding-top: 2rem;
+}
+
+/***Navbar**/
+
+
+/**Changes navbar toggler background to circle**/
+.navbar-toggler {
+background-color: var(--backgroundcolor);
+border-radius: 50%;
+height: 3.5rem;
+width: 3.5rem;
+}
+
+.navbar-light .navbar-nav .nav-link:link,
+.navbar-light .navbar-nav .nav-link:visited {
+background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+background-size: 220%;
+color: var(--lightcolor);
+display: inline-block;
+font-size: 2rem;
+font-weight: 300;
+padding: 1rem 2.75rem;
+text-decoration: none;
+text-transform: uppercase;
+transition: all .4s;
+}
+
+
+/**Navbar link items animation on hover**/
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:active {
+background-position: 100%;
+color: var(--secondarycolor);
+transform: translateX(.5rem);
+}
+
+
+/**Navbar icons display and margin**/
+
+.nav-link span {
+display: inline-block;
+margin-right: 1.5rem;
+}
+
+/***Header**/
+
+.header {
+  background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.8), rgba(90, 85, 96, 0.8)), url(../img/hero.jpg);
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+}
+
+
+/**Centres the text box horizontally**/
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+
+/**Hero button**/
+
+.btn {
+  border-radius: 10rem;
+  display: inline-block;
+  font-size: 1.5rem;
+  padding: 1.5rem 4rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+
+/**Gives slight box-shadow on hover**/
+
+.btn:hover {
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: var(--primarycolor);
+}
+
+#login {
+  background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.8), rgba(90, 85, 96, 0.8)), url(../img/login.jpg);
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+}
+
+#register {
+  background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.8), rgba(90, 85, 96, 0.8)), url(../img/register.jpg);
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.form-container {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  width: 25%;
+  height: 40rem;
+}
+
+.form-inner{ 
+  width: 100%; 
+  height: 100%; 
+}
+
+.form-input {
+  font-family: inherit;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.form-input-field {
+  width: 100%;
+}
+
+/**Footer**/
+/**Centering footer items, and giving footer minimum height**/
+.footer {
+  background-color: var(--primarycolor);
+  display: flex;
+  justify-content: center;
+  min-height: 10rem;
+}
+/**Setting footer items color, size and top padding**/
+.footer-icon a i {
+  color: var(--lightcolor);
+  font-size: 4rem;
+  padding-top: 3rem;
+}
+
+/** Media Queries **/
+@media only screen and (min-width : 280px) {
+  .form-container{ width: 90% }
+}
+
+@media only screen and (min-width : 480px) {
+  .form-container{ width: 60% }
+}
+
+@media only screen and (min-width : 768px) {
+  .form-container{ width: 40% }
+}
+
+@media only screen and (min-width : 992px) {
+  .form-container{ width: 30% }
+}

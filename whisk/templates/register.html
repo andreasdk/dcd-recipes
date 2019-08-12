@@ -1,0 +1,50 @@
+{% extends 'layout.html' %} {% block body %}
+<section id="register">
+    <div class="form-container">
+        <h1 class="heading-primary">Register</h1>
+        <form method="POST" action="" class="form-width">
+            {{ form.hidden_tag() }}
+            <!--Username input field-->
+            <div class="form-input">
+                {% if form.username.errors %} {{ form.username(class="form-control form-input is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.username.errors %}
+                    <span>{{ error }}</span> {% endfor %}
+                </div>
+                {% else %} {{ form.username(autofocus=true, class="form-input-field", required=true, placeholder="New username") }} {% endif %}
+            </div>
+            <!--Email Input Field-->
+            <div class="form-input">
+                {% if form.email.errors %} {{ form.email(class="form-control form-input is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                    <span>{{ error }}</span> {% endfor %}
+                </div>
+                {% else %} {{ form.email(autofocus=true, class="form-input-field", required=true, placeholder="Enter email") }} {% endif %}
+            </div>
+            <!--Password Input Field-->
+            <div class="form-input">
+                {% if form.password.errors %} {{ form.password(class="form-control form-input is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.password.errors %}
+                    <span>{{ error }}</span> {% endfor %}
+                </div>
+                {% else %} {{ form.password(required=true, class="form-input-field", placeholder="Enter password") }} {% endif %}
+            </div>
+            <!--Confirm Password-->
+            <div class="form-input">
+                {% if form.confirm_password.errors %} {{ form.confirm_password(class="form-control form-input is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.confirm_password.errors %}
+                    <span>{{ error }}</span> {% endfor %}
+                </div>
+                {% else %} {{ form.confirm_password(required=true, class="form-input-field", placeholder="Confirm password") }} {% endif %}
+            </div>
+            <div class="pb-4 text-white">Already registered? Log in <a href="{{ url_for('login') }}" class="text-white">here.</a></div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-white btn-block") }}
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
