@@ -13,15 +13,6 @@
                 </div>
                 {% else %} {{ form.username(autofocus=true, class="form-input-field", required=true, placeholder="New username") }} {% endif %}
             </div>
-            <!--Email Input Field-->
-            <div class="form-input">
-                {% if form.email.errors %} {{ form.email(class="form-control form-input is-invalid") }}
-                <div class="invalid-feedback">
-                    {% for error in form.email.errors %}
-                    <span>{{ error }}</span> {% endfor %}
-                </div>
-                {% else %} {{ form.email(autofocus=true, class="form-input-field", required=true, placeholder="Enter email") }} {% endif %}
-            </div>
             <!--Password Input Field-->
             <div class="form-input">
                 {% if form.password.errors %} {{ form.password(class="form-control form-input is-invalid") }}
