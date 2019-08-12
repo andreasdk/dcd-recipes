@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, flash, redirect, request, session
-from whisk import app
+from whisk import app, mongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from whisk.forms import LoginForm, RegistrationForm
 
@@ -19,11 +19,11 @@ def register():
     if form.validate_on_submit():
 
         user = mongo.db.user
-        dup_user = user.find_one({'name': request.form['username'].title()})
+        dup_user = user.find_one({'username': request.form['username'].title()})
 
         if dup_user is None:
             hash_pass = generate_password_hash(request.form['password'])
-            user.insert_one({'name': request.form['username'].title(),
+            user.insert_one({'username': request.form['username'].title(),
                              'pass': hash_pass})
             session['username'] = request.form['username']
             session['logged_in'] = True
@@ -45,7 +45,7 @@ def login():
     if form.validate_on_submit():
         user = mongo.db.user
         logged_in_user = user.find_one({
-                                'name': request.form['username'].title()})
+                                'username': request.form['username'].title()})
 
         if logged_in_user:
             if check_password_hash(logged_in_user['pass'],
