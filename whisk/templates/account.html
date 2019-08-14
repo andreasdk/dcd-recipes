@@ -1,5 +1,9 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+{% if session.username %}
+
 <h1>{{ current_user.username }}</h1>
+
+{% endif %}
 {% endblock %}
