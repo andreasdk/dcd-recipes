@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, flash, redirect, request, ses
 from whisk import app, mongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from whisk.forms import LoginForm, RegistrationForm
+from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 
 @app.route("/")
@@ -13,18 +14,19 @@ def home():
 #User registration function
 def register():
     # Check is user already logged in
-    if 'logged_in' in session:  
+    if 'logged_in' in session: 
+          
         return redirect(url_for('home'))
 
     form = RegistrationForm()
     if form.validate_on_submit():
 
         user = mongo.db.user
-        dup_user = user.find_one({'username': request.form['username'].title()})
+        dup_user = user.find_one({'username': request.form['username'].lower()})
 
         if dup_user is None:
             hash_pass = generate_password_hash(request.form['password'])
-            user.insert_one({'username': request.form['username'].title(),
+            user.insert_one({'username': request.form['username'].lower(),
                              'pass': hash_pass})
             session['username'] = request.form['username']
             session['logged_in'] = True
@@ -47,7 +49,7 @@ def login():
     if form.validate_on_submit():
         user = mongo.db.user
         existing_user = user.find_one({
-                                'username': request.form['username'].title()})
+                                'username': request.form['username'].lower()})
         # checks that hashed password matches user input
         if existing_user:
             if check_password_hash(existing_user['pass'],
@@ -61,10 +63,15 @@ def login():
             return redirect(url_for('login'))
     return render_template('login.html', form=form, title='Login')
 
-@app.route('/account/')
+@app.route('/account/<username>')
 # User account page after login
-def account(user_id):
-    return render_template('account.html', title='Account')
+def account(username):
+    
+    current_user = mongo.db.user.find_one({"username": username})
+
+    return render_template('account.html', current_user=current_user, title="My Account")
+
+
 
 @app.route('/logout')
 # Ends session and redirects to homepage
