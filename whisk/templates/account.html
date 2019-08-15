@@ -1,9 +1,15 @@
 {% extends 'layout.html' %}
-
 {% block body %}
 {% if session.username %}
 
-<h1>{{ current_user.username }}</h1>
+<div class="container account_section">
+    <div class="account_outer">
+      <img class="rounded-circle account_img" src="https://via.placeholder.com/150">
+      <div class="account_body">
+        <h2 class="heading-primary">{{ current_user.username }}</h2>
+      </div>
+    </div>
+</div>
 
 {% endif %}
 {% endblock %}
