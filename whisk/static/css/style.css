@@ -137,7 +137,7 @@ transition: all .4s;
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link:active {
 background-position: 100%;
-color: var(--secondarycolor);
+color: var(--primarycolor);
 transform: translateX(.5rem);
 }
 

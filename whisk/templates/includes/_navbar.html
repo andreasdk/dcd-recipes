@@ -14,10 +14,10 @@
         <ul class="navbar-nav">
             {% if session.username %}
             <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                <a class="nav-link" href="{{ url_for('logout') }}"><span><i class="fas fa-sign-out-alt"></i></span>Logout</a>
+                <a class="nav-link" href="{{ url_for('account', username=session.username) }}"><span><i class="fas fa-user-circle"></i></span>Account</a>
             </li>
             <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                <a class="nav-link" href="{{ url_for('account', username=session.username) }}"><span><i class="fas fa-sign-out-alt"></i></span>Account</a>
+                <a class="nav-link" href="{{ url_for('logout') }}"><span><i class="fas fa-sign-out-alt"></i></span>Logout</a>
             </li>
             {% else %}
             <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
