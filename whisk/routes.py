@@ -3,7 +3,7 @@ from whisk import app, mongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from whisk.forms import LoginForm, RegistrationForm
 from flask_pymongo import PyMongo, pymongo
-from bson.objectid import ObjectId
+import random
 
 @app.route("/")
 @app.route("/home")
@@ -24,10 +24,17 @@ def register():
         user = mongo.db.user
         dup_user = user.find_one({'username': request.form['username'].lower()})
 
+        avatars = [
+            "apple", "watermelon", "pear", "grapes",
+            "pomegranate", "orange", "pineapple", "lemon",
+            "strawberry"]
+        user_avatar = random.choice(avatars)
+
         if dup_user is None:
             hash_pass = generate_password_hash(request.form['password'])
+            
             user.insert_one({'username': request.form['username'].lower(),
-                             'pass': hash_pass})
+                             'pass': hash_pass, 'user_avatar': user_avatar})
             session['username'] = request.form['username']
             session['logged_in'] = True
             flash('Your account has been created! You are now able to log in', 'success')
