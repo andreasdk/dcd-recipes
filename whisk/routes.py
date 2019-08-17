@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, flash, redirect, request, session
 from whisk import app, mongo
 from werkzeug.security import generate_password_hash, check_password_hash
-from whisk.forms import LoginForm, RegistrationForm
+from whisk.forms import LoginForm, RegistrationForm, RecipeForm
 from flask_pymongo import PyMongo, pymongo
 import random
 
@@ -13,11 +13,6 @@ def home():
 @app.route('/register', methods=['GET', 'POST'])
 #User registration function
 def register():
-    # Check is user already logged in
-    if 'logged_in' in session: 
-          
-        return redirect(url_for('home'))
-
     form = RegistrationForm()
     if form.validate_on_submit():
 
@@ -48,10 +43,7 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 #User login function
 def login():
-    # Check if already logged in
-    if 'logged_in' in session:  
-        return redirect(url_for('home'))
-
+    
     form = LoginForm()
     if form.validate_on_submit():
         user = mongo.db.user
@@ -74,7 +66,7 @@ def login():
 # User account page after login
 def account(username):
     
-    current_user = mongo.db.user.find_one({"username": username})
+    current_user = mongo.db.user.find_one({'username': username})
 
     return render_template('account.html', current_user=current_user, title="My Account")
 
@@ -86,3 +78,35 @@ def logout():
     # Ends session
     session.clear()  
     return redirect(url_for('home'))
+
+# ------------------------------------------- #
+#    CRUD: Create | Read | Update | Delete    #
+# ------------------------------------------- #
+
+
+# ----- CREATE ----- #
+@app.route('/add_recipe', methods=['GET', 'POST'])
+def add_recipe():
+
+    form = RecipeForm(request.form)
+    user = mongo.db.user.find_one({'name': session['username'].lower()})
+    
+    if request.method == "GET":
+        return render_template('add_recipe.html', form=form, title="Add Recipe")
+
+    if request.method == "POST":
+        recipe = mongo.db.recipes.insert_one({
+                            'recipe_name': request.form['recipe_name'],
+                            'description': request.form['description'],
+                            'meal_type': request.form['meal_type'],
+                            'allergens': request.form['allergens'],
+                            'time': request.form['time'],
+                            'image': request.form['image'],
+                            'ingredient_name': request.form['ingredient_name'],
+                            'directions': request.form['directions'],
+                            'author': mongo.db.user.find_one({'username': session['username']})['_id']
+        })
+        flash('Recipe Added!')
+        return redirect(url_for('home'))
+        
+    
