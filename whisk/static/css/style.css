@@ -106,6 +106,9 @@ body {
   padding-top: 2rem;
 }
 
+.u-padding-top-lg {
+  padding-top: 5rem;
+}
 /***Navbar**/
 
 
@@ -230,6 +233,17 @@ margin-right: 1.5rem;
   width: 100%;
 }
 
+.form-input:focus {
+  outline: none;
+  border-bottom: 5px solid var(--lightcolor);
+  box-shadow: 0.1rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.form-input:focus:invalid {
+  border-bottom: 3px solid #ff0000;
+}
+
+
 .form-input-field {
   width: 100%;
 }
@@ -245,6 +259,12 @@ margin-right: 1.5rem;
   width: 125px;
   margin-right: 20px;
   margin-bottom: 16px;
+}
+
+/**Add Recipe**/
+.recipe-form {
+  background-color: #535A63;
+  color: #fff;
 }
 
 /**Footer**/
