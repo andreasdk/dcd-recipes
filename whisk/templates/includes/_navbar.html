@@ -10,6 +10,11 @@
             <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                 <a class="nav-link" href="#"><span><i class="fas fa-utensils"></i></span>Recipes</a>
             </li>
+            {% if session.username %}
+            <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                    <a class="nav-link" href="{{ url_for('add_recipe')}}"><span><i class="fas fa-plus-circle"></i></span>Add Recipe</a>
+            </li>
+            {% endif %}
         </ul>
         <ul class="navbar-nav">
             {% if session.username %}
