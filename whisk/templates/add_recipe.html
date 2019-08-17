@@ -1,0 +1,85 @@
+{% extends 'layout.html' %} {% block body %}
+<div class="container">
+    <h1 class="heading-primary text-center">New Recipe</h1>
+    <form action="{{ url_for('add_recipe') }}" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <!-- recipe name -->
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="recipe_name" class="d-none">
+                        Recipe Name
+                    </label>
+                    {{ form.recipe_name(class="form-control form-input", id="recipe_name", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Recipe Name") }}
+                </div>
+            </div>
+            <!-- recipe description -->
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="description" class="d-none">
+                        Recipe Description
+                    </label>
+                    {{ form.description(class="form-control form-input", id="description",  autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Recipe Description") }}
+                </div>
+            </div>
+            <!-- meal type -->
+            <div class="col-md-6 col-12">
+                <div class="form-group">
+                    <label for="meal_type" class="d-none">
+                        Meal Type
+                    </label>
+                    {{ form.meal_type(class="form-control form-input", id="meal_type", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Meal Type (e.g. Dinner)") }}
+                </div>
+            </div>
+            <!-- allergens -->
+            <div class="col-md-6 col-12">
+                <div class="form-group">
+                    <label for="allergens" class="d-none">
+                        Allergens
+                    </label>
+                    {{ form.allergens(class="form-control form-input ", id="allergens", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Diet Type (e.g. Gluten Free, Dairy Free)") }}
+                </div>
+            </div>
+            <!-- ingredient -->
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="ingredient_name" class="d-none">
+                        Ingredients
+                    </label>
+                    {{ form.ingredient_name(class="form-control form-input ", id="ingredient_name", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Enter ingredients") }}
+                </div>
+            </div>
+            <!-- cooking time in minutes -->
+            <div class="col-md-6 col-12">
+                <div class="form-group">
+                    <label for="time" class="d-none">
+                        Cooking Time
+                    </label>
+                    {{ form.time(class="form-control form-input ", id="time", autocomplete="off", type="number", placeholder="Enter cooking time in minutes") }}
+                </div>
+            </div>
+            <!-- recipe image -->
+            <div class="col-md-6 col-12">
+                <div class="form-group">
+                    <label for="image" class="d-none">
+                        Recipe Image
+                    </label>
+                    {{ form.image(class="form-control form-input", id="image", autocomplete="off", placeholder="Insert URL to image") }}
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="directions" class="d-none">
+                        Recipe Directions
+                    </label>
+                    {{ form.directions(class="form-control form-input ", id="directions", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Enter directions, each on a new line") }}    
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-white btn-lg") }}
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
