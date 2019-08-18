@@ -100,6 +100,7 @@ def add_recipe():
                             'description': request.form['description'],
                             'meal_type': request.form['meal_type'],
                             'allergens': request.form['allergens'],
+                            'prep_time': request.form['time'],
                             'time': request.form['time'],
                             'image': request.form['image'],
                             'ingredient_name': request.form['ingredient_name'],

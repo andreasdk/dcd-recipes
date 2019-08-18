@@ -50,13 +50,22 @@
                         {{ form.ingredient_name(class="form-control form-input ", id="ingredient_name", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Enter ingredients") }}
                     </div>
                 </div>
+                <!-- prep time in minutes -->
+                <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="prep_time" class="d-none">
+                                Cooking Time
+                            </label>
+                            {{ form.prep_time(class="form-control form-input ", id="prep_time", autocomplete="off", type="number", placeholder="Prep time in mins") }}
+                        </div>
+                    </div>
                 <!-- cooking time in minutes -->
-                <div class="col-md-6 col-12">
+                <div class="col-md-3 col-12">
                     <div class="form-group">
                         <label for="time" class="d-none">
                             Cooking Time
                         </label>
-                        {{ form.time(class="form-control form-input ", id="time", autocomplete="off", type="number", placeholder="Cooking time in minutes") }}
+                        {{ form.time(class="form-control form-input ", id="time", autocomplete="off", type="number", placeholder="Cook time in mins") }}
                     </div>
                 </div>
                 <!-- recipe image -->
