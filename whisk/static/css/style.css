@@ -6,7 +6,7 @@
   --primarycolor: #7768ae;
   --secondarycolor: #3bb273;
   --lightcolor: #e1bc29;
-  --backgroundcolor: rgb(244, 222, 203);
+  --backgroundcolor: #f7f7f7;
   --primaryfont: 'PT Sans', sans-serif;
   --secondaryfont: 'Playfair Display', serif;
 }
@@ -262,9 +262,21 @@ margin-right: 1.5rem;
 }
 
 /**Add Recipe**/
-.recipe-form {
-  background-color: #535A63;
-  color: #fff;
+label {
+  color: #000;
+  font-family: inherit;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+/**Single Recipe**/
+.recipe_container {
+  padding-top: 10rem;
+}
+
+.paragraph {
+  color: inherit;
+  font-size: 1.6rem;
+  font-family:var(--secondaryfont);
 }
 
 /**Footer**/
