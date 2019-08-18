@@ -8,70 +8,70 @@
                 <!-- recipe name -->
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="recipe_name" class="d-none">
+                        <label for="recipe_name">
                             Recipe Name
                         </label>
-                        {{ form.recipe_name(class="form-control form-input", id="recipe_name", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Recipe Name") }}
+                        {{ form.recipe_name(class="form-control form-input", id="recipe_name", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Coconut Macaroons") }}
                     </div>
                 </div>
                 <!-- recipe description -->
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="description" class="d-none">
+                        <label for="description">
                             Recipe Description
                         </label>
-                        {{ form.description(class="form-control form-input", id="description", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Recipe Description") }}
+                        {{ form.description(class="form-control form-input", id="description", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="These coconut macaroons are gluten-free and very tasty. They're easy to make so great to do with kids.") }}
                     </div>
                 </div>
                 <!-- meal type -->
                 <div class="col-md-6 col-12">
                     <div class="form-group">
-                        <label for="meal_type" class="d-none">
+                        <label for="meal_type">
                             Meal Type
                         </label>
-                        {{ form.meal_type(class="form-control form-input", id="meal_type", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Meal Type (e.g. Dinner)") }}
+                        {{ form.meal_type(class="form-control form-input", id="meal_type", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Dessert") }}
                     </div>
                 </div>
                 <!-- allergens -->
                 <div class="col-md-6 col-12">
                     <div class="form-group">
-                        <label for="allergens" class="d-none">
+                        <label for="allergens">
                             Allergens
                         </label>
-                        {{ form.allergens(class="form-control form-input ", id="allergens", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Diet Type (e.g. Dairy Free)") }}
+                        {{ form.allergens(class="form-control form-input ", id="allergens", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Gluten Free") }}
                     </div>
                 </div>
                 <!-- ingredient -->
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="ingredient_name" class="d-none">
+                        <label for="ingredient_name">
                             Ingredients
                         </label>
-                        {{ form.ingredient_name(class="form-control form-input ", id="ingredient_name", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Enter ingredients") }}
+                        {{ form.ingredient_name(class="form-control form-input ", id="ingredient_name", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="2 egg whites, 100g caster sugar, 160g desiccated coconut, 1 tsp grated lime zest, 1 tbsp lime juice") }}
                     </div>
                 </div>
                 <!-- prep time in minutes -->
                 <div class="col-md-3 col-12">
                         <div class="form-group">
-                            <label for="prep_time" class="d-none">
-                                Cooking Time
+                            <label for="prep_time">
+                                Prep Time
                             </label>
-                            {{ form.prep_time(class="form-control form-input ", id="prep_time", autocomplete="off", type="number", placeholder="Prep time in mins") }}
+                            {{ form.prep_time(class="form-control form-input ", id="prep_time", autocomplete="off", type="number", placeholder="In mins") }}
                         </div>
                     </div>
                 <!-- cooking time in minutes -->
                 <div class="col-md-3 col-12">
                     <div class="form-group">
-                        <label for="time" class="d-none">
+                        <label for="time">
                             Cooking Time
                         </label>
-                        {{ form.time(class="form-control form-input ", id="time", autocomplete="off", type="number", placeholder="Cook time in mins") }}
+                        {{ form.time(class="form-control form-input ", id="time", autocomplete="off", type="number", placeholder="In mins") }}
                     </div>
                 </div>
                 <!-- recipe image -->
                 <div class="col-md-6 col-12">
                     <div class="form-group">
-                        <label for="image" class="d-none">
+                        <label for="image">
                             Recipe Image
                         </label>
                         {{ form.image(class="form-control form-input", id="image", autocomplete="off", placeholder="Insert URL to image") }}
@@ -80,10 +80,10 @@
 
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="directions" class="d-none">
+                        <label for="directions">
                             Recipe Directions
                         </label>
-                        {{ form.directions(class="form-control form-input u-margin-bottom-medium ", id="directions", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Enter directions, each on a new line") }}
+                        {{ form.directions(class="form-control form-input u-margin-bottom-medium ", id="directions", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Preheat the oven to 180C/160C Fan/Gas 4. Mix the egg whites, sugar, coconut, lime zest and juice in a bowl.") }}
                     </div>
                 </div>
                 <div class="form-group">
