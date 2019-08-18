@@ -26,6 +26,8 @@ class RecipeForm(FlaskForm):
                             validators=[DataRequired()])
     allergens = StringField('Recipe Category',
                             validators=[Optional()])
+    prep_time = IntegerField('Prep Time',
+                            validators=[DataRequired()])
     time = IntegerField('Cooking Time',
                             validators=[DataRequired()])
     image = StringField('Recipe Image',
