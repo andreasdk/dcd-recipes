@@ -3,6 +3,7 @@ from whisk import app, mongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from whisk.forms import LoginForm, RegistrationForm, RecipeForm
 from flask_pymongo import PyMongo, pymongo
+from bson.objectid import ObjectId
 import random
 
 @app.route("/")
@@ -91,6 +92,7 @@ def add_recipe():
     form = RecipeForm(request.form)
     user = mongo.db.user.find_one({'name': session['username'].lower()})
     
+    
     if request.method == "GET":
         return render_template('add_recipe.html', form=form, title="Add Recipe")
 
@@ -109,5 +111,14 @@ def add_recipe():
         })
         flash('Recipe Added!')
         return redirect(url_for('home'))
+
+# ----- READ ----- #
+@app.route('/recipe/<recipe_id>', methods=['GET', 'POST'])
+def recipe(recipe_id):
+
+    single_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    return render_template('recipe.html',
+                               recipe=single_recipe, title=single_recipe['recipe_name'])
         
     
