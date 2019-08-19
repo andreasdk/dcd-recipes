@@ -4,28 +4,28 @@
         <div class="col-md-6 text-center">
             <h1 class="heading-primary">{{ recipe.recipe_name }}</h1>
             <p class="paragraph">{{ recipe.description }}</p>
-
-            <div class="row">
+            
+            <div class="row pt-5">
                 <div class="col-6">
-                    <i class="fas fa-utensil-spoon"></i>
+                    <i class="fas fa-utensil-spoon recipe_icon"></i>
                     <h4>Meal Type</h4>
                     <p class="paragraph">{{ recipe.meal_type }}</p>
                 </div>
                 <div class="col-6">
-                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-check-circle recipe_icon"></i>
                     <h4>Diet Type</h4>
                     <p class="paragraph">{{ recipe.allergens }}</p>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row pt-3">
                 <div class="col-6">
-                    <i class="fas fa-stopwatch"></i>
+                    <i class="fas fa-stopwatch recipe_icon"></i>
                     <h4>Prep Time</h4>
                     <p class="paragraph">{{ recipe.prep_time }} Min</p>
                 </div>
                 <div class="col-6">
-                    <i class="fas fa-hourglass-start"></i>
+                    <i class="fas fa-hourglass-start recipe_icon"></i>
                     <h4>Cooking Time</h4>
                     <p class="paragraph">{{ recipe.time }} Min</p>
                 </div>
