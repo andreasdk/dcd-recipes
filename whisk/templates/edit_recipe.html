@@ -1,0 +1,97 @@
+{% extends 'layout.html' %} {% block body %}
+<main class="recipe-form">
+    <div class="container u-padding-top-lg">
+        <h1 class="heading-secondary text-center">Update Recipe</h1>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="row">
+                <!-- recipe name -->
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="recipe_name">
+                            Recipe Name
+                        </label>
+                        {{ form.recipe_name(class="form-control form-input", id="recipe_name", autocomplete="off" }}
+                    </div>
+                </div>
+                <!-- recipe description -->
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="description">
+                            Recipe Description
+                        </label>
+                        {{ form.description(class="form-control form-input", id="description", autocomplete="off" }}
+                    </div>
+                </div>
+                <!-- meal type -->
+                <div class="col-md-6 col-12">
+                    <div class="form-group">
+                        <label for="meal_type">
+                            Meal Type
+                        </label>
+                        {{ form.meal_type(class="form-control form-input", id="meal_type", autocomplete="off" }}
+                    </div>
+                </div>
+                <!-- allergens -->
+                <div class="col-md-6 col-12">
+                    <div class="form-group">
+                        <label for="allergens">
+                            Allergens
+                        </label>
+                        {{ form.allergens(class="form-control form-input ", id="allergens", autocomplete="off"}}
+                    </div>
+                </div>
+                <!-- ingredient -->
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="ingredient_name">
+                            Ingredients
+                        </label>
+                        {{ form.ingredient_name(class="form-control form-input ", id="ingredient_name", autocomplete="off"}}
+                    </div>
+                </div>
+                <!-- prep time in minutes -->
+                <div class="col-md-3 col-12">
+                        <div class="form-group">
+                            <label for="prep_time">
+                                Prep Time
+                            </label>
+                            {{ form.prep_time(class="form-control form-input ", id="prep_time", autocomplete="off", type="number") }}
+                        </div>
+                    </div>
+                <!-- cooking time in minutes -->
+                <div class="col-md-3 col-12">
+                    <div class="form-group">
+                        <label for="time">
+                            Cooking Time
+                        </label>
+                        {{ form.time(class="form-control form-input ", id="time", autocomplete="off", type="number") }}
+                    </div>
+                </div>
+                <!-- recipe image -->
+                <div class="col-md-6 col-12">
+                    <div class="form-group">
+                        <label for="image">
+                            Recipe Image
+                        </label>
+                        {{ form.image(class="form-control form-input", id="image", autocomplete="off") }}
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="directions">
+                            Recipe Directions
+                        </label>
+                        {{ form.directions(class="form-control form-input u-margin-bottom-medium ", id="directions", autocomplete="off"}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-white u-margin-bottom-medium u-padding-top") }}
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+
+{% endblock %}
