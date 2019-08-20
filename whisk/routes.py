@@ -5,6 +5,12 @@ from whisk.forms import LoginForm, RegistrationForm, RecipeForm
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 import random
+import re
+
+# Collections
+coll_recipes = mongo.db.recipes
+coll_users = mongo.db.user
+
 
 @app.route("/")
 @app.route("/home")
@@ -17,7 +23,7 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
 
-        user = mongo.db.user
+        user = coll_users
         dup_user = user.find_one({'username': request.form['username'].lower()})
 
         avatars = [
@@ -30,7 +36,7 @@ def register():
             hash_pass = generate_password_hash(request.form['password'])
             
             user.insert_one({'username': request.form['username'].lower(),
-                             'pass': hash_pass, 'user_avatar': user_avatar})
+                             'pass': hash_pass, 'user_avatar': user_avatar, "user_recipes": []})
             session['username'] = request.form['username']
             session['logged_in'] = True
             flash('Your account has been created! You are now able to log in', 'success')
@@ -47,7 +53,7 @@ def login():
     
     form = LoginForm()
     if form.validate_on_submit():
-        user = mongo.db.user
+        user = coll_users
         existing_user = user.find_one({
                                 'username': request.form['username'].lower()})
         # checks that hashed password matches user input
@@ -67,7 +73,7 @@ def login():
 # User account page after login
 def account(username):
     
-    current_user = mongo.db.user.find_one({'username': username})
+    current_user = coll_users.find_one({'username': username})
 
     return render_template('account.html', current_user=current_user, title="My Account")
 
@@ -80,6 +86,8 @@ def logout():
     session.clear()  
     return redirect(url_for('home'))
 
+
+
 # ------------------------------------------- #
 #    CRUD: Create | Read | Update | Delete    #
 # ------------------------------------------- #
@@ -90,14 +98,15 @@ def logout():
 def add_recipe():
 
     form = RecipeForm(request.form)
-    user = mongo.db.user.find_one({'name': session['username'].lower()})
+    user = coll_users.find_one({'name': session['username'].lower()})
+    author = coll_users.find_one({"username": session["username"]})["_id"]
     
     
     if request.method == "GET":
         return render_template('add_recipe.html', form=form, title="Add Recipe")
 
     if request.method == "POST":
-        recipe = mongo.db.recipes.insert_one({
+        recipe = coll_recipes.insert_one({
                             'recipe_name': request.form['recipe_name'],
                             'description': request.form['description'],
                             'meal_type': request.form['meal_type'],
@@ -107,8 +116,11 @@ def add_recipe():
                             'image': request.form['image'],
                             'ingredient_name': request.form['ingredient_name'],
                             'directions': request.form['directions'],
-                            'author': mongo.db.user.find_one({'username': session['username']})['_id']
+                            'author': author
         })
+        coll_users.update_one(
+        {"_id": ObjectId(author)},
+        {"$push": {"user_recipes": recipe.inserted_id}})
         flash('Recipe Added!')
         return redirect(url_for('home'))
 
@@ -116,9 +128,62 @@ def add_recipe():
 @app.route('/recipe/<recipe_id>', methods=['GET', 'POST'])
 def recipe(recipe_id):
 
-    single_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    single_recipe = coll_recipes.find_one({"_id": ObjectId(recipe_id)})
 
     return render_template('recipe.html',
                                recipe=single_recipe, title=single_recipe['recipe_name'])
+
         
-    
+# ----- UPDATE ----- #
+@app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
+def edit_recipe(recipe_id):
+
+    user = coll_users.find_one({'name': session['username']})  # Get the user
+
+    selected_recipe = coll_recipes.find_one({'_id': ObjectId(recipe_id)})  # Get the recipe
+
+    author = coll_users.find_one({"username": session["username"]})["_id"]
+
+    form = RecipeForm()  # Form
+
+    print (user['_id'])  # Ensure that is the user ._id
+
+    print (selected_recipe['author'])  # Ensure that is also author ._id
+
+    if user['_id'] == selected_recipe['author']:
+
+        form = RecipeForm(data=selected_recipe)
+
+        if form.validate_on_submit():
+
+            recipe = coll_recipes
+
+            recipe.update_one({'_id': ObjectId(recipe_id)}, {'$set': {
+                'recipe_name': request.form['recipe_name'],
+                'description': request.form['description'],
+                'meal_type': request.form['meal_type'],
+                'allergens': request.form['allergens'],
+                'prep_time': request.form['time'],
+                'time': request.form['time'],
+                'image': request.form['image'],
+                'ingredient_name': request.form['ingredient_name'],
+                'directions': request.form['directions'],
+                'author': author,
+                }})
+
+            flash('Recipe successfully updated.')
+
+            return redirect(url_for('recipe', recipe_id=recipe_id))
+    else:
+
+        flash("Sorry, you don't have the rights to edit this recipe!")
+
+        return redirect(url_for('recipe', recipe_id=recipe_id))
+
+    return render_template('edit_recipe.html', recipe=selected_recipe,
+                           form=form, title='Edit Recipe')
+
+
+			
+			
+			
