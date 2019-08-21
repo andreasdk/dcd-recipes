@@ -10,4 +10,12 @@
         <a href="#" class="btn btn-white">Search Now</a>
     </div>	
 </header>
+
+<div class="container-fluid">
+    <div class="row">
+        {% for recipe in recipes %}
+            {% include "includes/_cards.html" %}
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
