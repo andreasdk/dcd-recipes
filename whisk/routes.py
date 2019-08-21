@@ -137,8 +137,6 @@ def recipe(recipe_id):
 
         
 # ----- UPDATE ----- #
-
-
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
 
@@ -185,6 +183,28 @@ def edit_recipe(recipe_id):
     return render_template('edit_recipe.html', recipe=selected_recipe,
                            form=form, title='Edit Recipe')
 
+# ----- DELETE ----- #
+@app.route('/delete/<recipe_id>')
+def delete_recipe(recipe_id):
+
+    user = coll_users.find_one({'username': session['username']})  # Get the user
+
+    selected_recipe = \
+        coll_recipes.find_one({'_id': ObjectId(recipe_id)})  # Get the recipe
+    
+    author = coll_users.find_one({'username': session['username'
+                                 ]})['_id']
+    
+    if user['_id'] == selected_recipe['author']:
+        recipe = coll_recipes
+        recipe.delete_one({
+            '_id': ObjectId(recipe_id)
+        })
+        flash('Recipe deleted', 'success')
+        return redirect(url_for('home'))
+
+    flash("Sorry you can only delete your own recipes!")
+    return redirect(url_for('recipe', recipe_id=recipe_id))
 
 
 			
