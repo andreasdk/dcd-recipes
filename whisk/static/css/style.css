@@ -292,6 +292,44 @@ label {
   font-family:var(--secondaryfont);
 }
 
+/**Recipe Card**/
+.card {
+  border: none;
+}
+
+.card_recipe {
+  background-color: #040304;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  color: #fff;
+  font-family: var(--primaryfont);
+  line-height: 1.8em;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.card_recipe a {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.card_img {
+  opacity: 0.75;
+}
+
+.card_title {
+  bottom: 0;
+  font-size:2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  margin-bottom: 1rem;
+  position: absolute;
+  z-index: 1;
+}
+
 /**Footer**/
 /**Centering footer items, and giving footer minimum height**/
 .footer {
