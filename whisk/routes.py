@@ -15,7 +15,12 @@ coll_users = mongo.db.user
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html')
+
+    recipes = coll_recipes.find().sort('_id', pymongo.ASCENDING)
+
+    return render_template('home.html', recipes=recipes)
+
+
 
 @app.route('/register', methods=['GET', 'POST'])
 #User registration function
@@ -127,7 +132,7 @@ def add_recipe():
 
 
 # ----- READ ----- #
-@app.route('/recipe/<recipe_id>', methods=['GET', 'POST'])
+@app.route('/recipes/<recipe_id>', methods=['GET', 'POST'])
 def recipe(recipe_id):
 
     single_recipe = coll_recipes.find_one({"_id": ObjectId(recipe_id)})
