@@ -31,7 +31,7 @@
                 </div>
                 {% else %} {{ form.confirm_password(required=true, class="form-input-field", placeholder="Confirm password") }} {% endif %}
             </div>
-            <div class="pb-4 text-white">Already registered? Log in <a href="{{ url_for('login') }}" class="text-white">here.</a></div>
+            <div class="pb-4 text-white">Already registered? Log in <a href="{{ url_for('users.login') }}" class="text-white">here.</a></div>
             <div class="form-group">
                 {{ form.submit(class="btn btn-white btn-block") }}
             </div>
