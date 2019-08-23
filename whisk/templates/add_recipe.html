@@ -2,7 +2,7 @@
 <main class="recipe-form">
     <div class="container u-padding-top-lg">
         <h1 class="heading-secondary text-center">New Recipe</h1>
-        <form action="{{ url_for('add_recipe') }}" method="POST">
+        <form action="{{ url_for('recipes.add_recipe') }}" method="POST">
             {{ form.hidden_tag() }}
             <div class="row">
                 <!-- recipe name -->
