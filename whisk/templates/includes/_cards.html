@@ -4,6 +4,6 @@
         <div class="card-img-overlay">
             <h6 class="card_title">{{ recipe.recipe_name }}</h6>   
         </div>
-           <a href="{{ url_for('recipe', recipe_id=recipe._id) }}"></a>
+           <a href="{{ url_for('recipes.recipe', recipe_id=recipe._id) }}"></a>
     </div>
 </div>

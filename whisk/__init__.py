@@ -1,14 +1,26 @@
-import os
 from flask import Flask
 from flask_pymongo import PyMongo
+from whisk.config import Config
 
-app = Flask(__name__)
+# variable for PyMongo
+mongo = PyMongo()
 
-# ENVIRONMENT VARIABLES (.env)
-app.config["MONGO_DBNAME"] = "whisk"
-app.config["MONGO_URI"] = os.getenv("MONGO_URI")
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
-mongo = PyMongo(app)
+# --------------------------------------- #
+#    Create entire instance of the app    #
+# --------------------------------------- #
+def create_app(config_class=Config):
+    app = Flask(__name__)
+    app.config.from_object(Config)
 
-from whisk import routes
+    mongo.init_app(app)
+
+    # route imports
+    from whisk.main.routes import main
+    from whisk.recipes.routes import recipes
+    from whisk.users.routes import users
+    app.register_blueprint(main)
+    app.register_blueprint(recipes)
+    app.register_blueprint(users)
+
+    return app
