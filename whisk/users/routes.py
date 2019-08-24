@@ -1,8 +1,10 @@
 from flask import Flask, render_template, url_for, flash, redirect, request, session, Blueprint
 from whisk import mongo
+from flask_pymongo import pymongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from whisk.utils import coll_recipes, coll_users
 import random
+from bson.objectid import ObjectId
 from whisk.users.form import RegistrationForm, LoginForm
 
 
@@ -73,14 +75,31 @@ def login():
 
 
 # ----- USER PROFILE ----- #
-@users.route('/account/<username>')
+@users.route('/account/<username>', methods=["GET", "POST"])
 # User account page after login
 def account(username):
-    
-    current_user = coll_users.find_one({'username': username})
 
-    return render_template('account.html', current_user=current_user, title="My Account")
+    username = coll_users.find_one({'username': session['username']})['username']
+    user_id = coll_users.find_one({'username': session['username']})['_id']
+    user_avatar = coll_users.find_one({'username': session['username']})['user_avatar']
+    user_recipes = coll_recipes.find({'author': user_id}).sort([('recipe_name', 1)])
 
+    return render_template('account.html', username=username, user_avatar=user_avatar, user_recipes=user_recipes, title="My Account")
+
+# ----- UPDATE PASSWORD ----- #
+@users.route('/account/<username>/edit', methods=["GET", "POST"])
+def update_password(username):
+
+
+    user = coll_users.find_one({'username': session['username'].lower()})
+
+    if check_password_hash(
+            user["user_password"], request.form.get("current_password")):
+        flash('Your password has been successfully updated!')
+        coll_users.update_one(
+            {"username": session["username"].lower()},
+            {"$set": {"password": generate_password_hash(
+                request.form.get("new_password"))}})
 
 # ----- LOGOUT ----- #
 @users.route('/logout')
