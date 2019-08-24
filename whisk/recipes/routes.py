@@ -21,9 +21,9 @@ recipes = Blueprint('recipes', __name__)
 def add_recipe():
 
     form = RecipeForm(request.form)
-    user = coll_users.find_one({'username': session['username'].lower()})
-    author = coll_users.find_one({'username': session['username'
-                                 ]})['_id']
+    user = coll_users.find_one({'username': session['username'
+                               ].lower()})
+    author = coll_users.find_one({"username": session["username"]})["_id"]
 
     if request.method == 'GET':
         return render_template('add_recipe.html', form=form,
@@ -41,12 +41,12 @@ def add_recipe():
             'ingredient_name': request.form['ingredient_name'],
             'directions': request.form['directions'],
             'author': author,
-            'user' : user
             })
         coll_users.update_one({'_id': ObjectId(author)},
                               {'$push': {'user_recipes': recipe.inserted_id}})
         flash('Recipe Added!')
         return redirect(url_for('main.home'))
+
 
 
 # ----- READ SINGLE RECIPE ----- #
