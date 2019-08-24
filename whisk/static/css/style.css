@@ -37,8 +37,7 @@ body {
 
 .heading-primary {
   color: var(--lightcolor);
-  margin-bottom: 6rem;
-  margin-left: 2.25rem;
+  margin-bottom: 3rem;
   text-transform: uppercase;
 }
 
@@ -205,6 +204,28 @@ margin-right: 1.5rem;
   color: var(--backgroundcolor);
 }
 
+.btn-edit {
+  background-color: var(--primarycolor);
+  color: var(--backgroundcolor);
+  border-radius: 0;
+  width: 100%;
+}
+
+.btn-edit:hover {
+  color: var(--backgroundcolor);
+}
+
+.btn-delete {
+  border-radius: 0;
+  background-color: var(--lightcolor);
+  color: var(--backgroundcolor);
+  width: 100%;
+}
+
+.btn-delete:hover {
+  color: var(--backgroundcolor);
+}
+
 #login {
   background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.8), rgba(90, 85, 96, 0.8)), url(../img/login.jpg);
   background-position: center center;
@@ -258,16 +279,28 @@ margin-right: 1.5rem;
 }
 
 /**Account**/
-.account_section {
-  padding: 60px 20px;
-  margin-bottom: 20px;
+.user_account {
+  padding: 20rem 0;
 }
 
-.account_img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
+.account_sidebar {
+  padding: 2rem 0 1rem 0;
+  background: #fff;
+  text-align: center;
+}
+
+.account_avatar {
+  display: inline-block;
+}
+
+.account_username {
+  margin-top: 2rem;
+}
+
+.account_content {
+  padding: 2rem;
+  background: var(--backgroundcolor);
+  min-height: 46rem;
 }
 
 /**Add Recipe**/

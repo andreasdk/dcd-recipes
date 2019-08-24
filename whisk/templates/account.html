@@ -2,13 +2,43 @@
 {% block body %}
 {% if session.username %}
 
-<div class="container account_section">
-    <div class="account_outer">
-      <img class="rounded-circle account_img" src="https://via.placeholder.com/150">
-      <div class="account_body">
-        <h2 class="heading-primary">{{ current_user.username }}</h2>
+<div class="container">
+  <div class="row user_account">
+    <div class="col-md-3">
+      <div class="account_sidebar">
+          <div class="account_avatar">
+              <img class="img-responsive" src="{{ url_for('static', filename='img/avatars/'+user_avatar+'.png') }}">
+          </div>
+          <div class="account_username">
+              <h2 class="heading-primary">{{ username }}</h2>
+          </div>
+          <div class="account_usermenu">
+              <a href="#modal-edit-password" class="btn btn-edit mb-2" role="button">Change Password</a>
+              <a href="#modal-delete-account" class="btn btn-delete">Delete Account</a>
+            </div>
+      </div> 
+    </div>
+    <div class="col-md-9">
+      <div class="account_content">
+        <h2 class="heading-primary">{{ username }}'s Recipes</h2>
+        <div class="container-fluid">
+            <div class="row">
+              {% for user_recipe in user_recipes %}
+              <div class="col-sm-12 col-md-3 my-3">
+                  <div class="card card_recipe">
+                      <img src="{{ user_recipe.image }}" alt="Recipe Image" class="card_img img-fluid" lazyload="on">
+                      <div class="card-img-overlay">
+                          <h6 class="card_title">{{ user_recipe.recipe_name }}</h6>   
+                      </div>
+                         <a href="#"></a>
+                  </div>
+              </div>
+              {% endfor %}
+            </div>
+        </div>
       </div>
     </div>
+  </div>
 </div>
 
 {% endif %}
