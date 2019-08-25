@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Sans|Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cabin|Roboto+Condensed&display=swap');
 
 /*CSS Variables*/
 
@@ -6,9 +6,9 @@
   --primarycolor: #7768ae;
   --secondarycolor: #3bb273;
   --lightcolor: #e1bc29;
-  --backgroundcolor: #f7f7f7;
-  --primaryfont: 'PT Sans', sans-serif;
-  --secondaryfont: 'Playfair Display', serif;
+  --backgroundcolor: #e3e3e3;
+  --primaryfont: 'Roboto Condensed', sans-serif;
+  --secondaryfont: 'Cabin', sans-serif;
 }
 
 /*Root Element Styles*/
@@ -148,7 +148,7 @@ transform: translateX(.5rem);
 
 .nav-link span {
 display: inline-block;
-margin-right: 1.5rem;
+margin-right: 2.5rem;
 }
 
 /***Header**/
@@ -224,6 +224,13 @@ margin-right: 1.5rem;
 
 .btn-delete:hover {
   color: var(--backgroundcolor);
+}
+
+/**Pagination**/
+.pagination-lg .page-link {
+  padding: .75rem 1.5rem;
+  font-size: 1.75rem;
+  line-height: 1.5;
 }
 
 #login {
