@@ -24,3 +24,7 @@ class PasswordForm(FlaskForm):
     confirm_password = PasswordField('Confirm Password',
                                      validators=[DataRequired(), EqualTo('new_password')])
     submit = SubmitField('Change Password')
+
+class DeleteForm(FlaskForm):
+    verify_password = PasswordField('Verify Password', validators=[DataRequired()])
+    submit = SubmitField('Delete Account')
