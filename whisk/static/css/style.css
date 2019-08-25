@@ -240,6 +240,10 @@ margin-right: 1.5rem;
   height: 100vh;
 }
 
+#password_form {
+  padding-top: 40rem;
+}
+
 .form-container {
   position: relative;
   top: 50%;
