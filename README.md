@@ -1,4 +1,4 @@
-# [Whisk Recipes] (https://whisk-recipes.herokuapp.com/)
+# [Whisk Recipes](https://whisk-recipes.herokuapp.com/)
 
 ---
 
@@ -62,6 +62,6 @@ This site was built using Bootstrap, as well as refactored designs I used in my 
 - [Bootstrap 4.3.1](https://getbootstrap.com//)
     - I chose Bootstrap for its ease of use, its minimal use of classes compared to other front-end libraries, and its ability to be easily customized.
 - [jQuery 3.3.1](https://code.jquery.com/jquery/)
-    - In an effort to keep the JavaScript minimal, I have decided to use jQuery as foundation to my scripts framework.
+    - I am using the version of jQuery recommended with Bootstrap for features like the navbar.
 - [Flask 1.0.2](http://flask.pocoo.org/)
-    - Flask is a microframework that I've used to render the back-end Python with the front-end Materialize.
+    - I've used the Python framework to create routes, functions and templates for the back-end of the website.
