@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from whisk.utils import coll_recipes, coll_users
 import random
 from bson.objectid import ObjectId
-from whisk.users.form import RegistrationForm, LoginForm
+from whisk.users.form import RegistrationForm, LoginForm, PasswordForm
 
 
 
@@ -87,19 +87,33 @@ def account(username):
     return render_template('account.html', username=username, user_avatar=user_avatar, user_recipes=user_recipes, title="My Account")
 
 # ----- UPDATE PASSWORD ----- #
-@users.route('/account/<username>/edit', methods=["GET", "POST"])
+@users.route('/edit/<username>/', methods=['GET', 'POST'])
 def update_password(username):
 
+    username = coll_users.find_one({'username': session['username'
+                                   ]})['username']
+    form = PasswordForm()
 
-    user = coll_users.find_one({'username': session['username'].lower()})
+    if form.validate_on_submit():
 
-    if check_password_hash(
-            user["user_password"], request.form.get("current_password")):
-        flash('Your password has been successfully updated!')
-        coll_users.update_one(
-            {"username": session["username"].lower()},
-            {"$set": {"password": generate_password_hash(
-                request.form.get("new_password"))}})
+        form = PasswordForm(username)
+
+        if check_password_hash(coll_users.find_one({'username': username})['pass'
+                               ], request.form.get('current_password')):
+            coll_users.update_one({'username': username},
+                                  {'$set': {'pass': generate_password_hash(request.form.get('new_password'
+                                  ))}})
+            return redirect(url_for('users.account', username=username))
+
+        else:
+            flash("Original password is incorrect!")
+            return redirect(url_for(
+                "users.update_password",
+                username=username))
+
+    return render_template('change_password.html', username=username,
+                           form=form, title='Change Password')
+
 
 # ----- LOGOUT ----- #
 @users.route('/logout')
