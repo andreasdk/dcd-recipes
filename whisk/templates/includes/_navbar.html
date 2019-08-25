@@ -8,7 +8,7 @@
                 <a class="nav-link" href="{{ url_for('main.home')}}"><span><i class="fas fa-home"></i></span>Home</a>
             </li>
             <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                <a class="nav-link" href="#"><span><i class="fas fa-utensils"></i></span>Recipes</a>
+                <a class="nav-link" href="{{ url_for('recipes.all_recipes')}}"><span><i class="fas fa-utensils"></i></span>Recipes</a>
             </li>
             {% if session.username %}
             <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">

@@ -1,9 +1,10 @@
 from flask import Flask, render_template, url_for, flash, redirect, request, session, Blueprint
 from whisk import mongo
 from whisk.utils import coll_recipes, coll_users
-from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 from whisk.recipes.form import RecipeForm
+import math
 
 # --------------------- #
 #    Flask Blueprint    #
@@ -47,7 +48,18 @@ def add_recipe():
         flash('Recipe Added!')
         return redirect(url_for('main.home'))
 
+# ----- READ ALL RECIPES ----- #
+@recipes.route('/recipes')
+def all_recipes():
 
+    per_page = 8
+    current_page = int(request.args.get('current_page', 1))
+    total = coll_recipes.count()
+    pages = range(1, int(math.ceil(total / per_page)) + 1)
+    recipes = coll_recipes.find().sort('_id', pymongo.ASCENDING).skip(
+        (current_page - 1)*per_page).limit(per_page)
+
+    return render_template('recipes.html', recipes=recipes, title="Recipes", current_page=current_page, pages=pages)
 
 # ----- READ SINGLE RECIPE ----- #
 @recipes.route('/recipes/<recipe_id>', methods=['GET', 'POST'])
@@ -57,8 +69,7 @@ def recipe(recipe_id):
 
     return render_template('recipe.html',
                                recipe=single_recipe, title=single_recipe['recipe_name'])
-
-        
+       
 # ----- UPDATE ----- #
 @recipes.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):

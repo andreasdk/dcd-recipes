@@ -1,15 +1,6 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-<header class="header">
-    <div class="text-box">
-        <h1 class="heading-primary">
-            <span class="heading-primary-main">Whisk Recipes</span>
-            <span class="heading-primary-sub">Find your next meal inspiration here</span>
-        </h1>
-        <a href="#" class="btn btn-white">Search Now</a>
-    </div>	
-</header>
 
 <section class="container-fluid">
     <div class="u-center-text u-margin-bottom-large u-padding-top">
@@ -27,7 +18,7 @@
         {% for page_number in pages %} {% if page_number == current_page %}
         <li class="page-item active"><a class="page-link">{{ page_number }}</a></li>
         {% else %}
-        <li class="page-item"><a class="page-link" href="{{ url_for('main.home', current_page=page_number) }}">{{ page_number }}</a></li>
+        <li class="page-item"><a class="page-link" href="{{ url_for('recipes.recipes', current_page=page_number) }}">{{ page_number }}</a></li>
         {% endif %} {% endfor %}
     </ul>
 </nav>
