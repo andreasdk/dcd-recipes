@@ -30,7 +30,7 @@
                       <div class="card-img-overlay">
                           <h6 class="card_title">{{ user_recipe.recipe_name }}</h6>   
                       </div>
-                         <a href="#"></a>
+                         <a href="{{ url_for('recipes.recipe', recipe_id=user_recipe._id) }}"></a>
                   </div>
               </div>
               {% endfor %}
