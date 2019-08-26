@@ -58,12 +58,13 @@ body {
   display: block;
   font-size: 6rem;
   font-weight: 500;
-  letter-spacing: 3.5rem;
+  letter-spacing: 1.25rem;
+  margin-left:.25rem;
 }
 
 .heading-primary-sub {
   display: block;
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 500;
   letter-spacing: 1.45rem;
 }
@@ -73,13 +74,6 @@ body {
     letter-spacing: 1rem;
     font-family: 5rem;
   }
-}
-
-.heading-primary-sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
 }
 
 @media only screen and (max-width: 37.5em) {
@@ -176,7 +170,7 @@ width: 3.5rem;
 .navbar-light .navbar-nav .nav-link:link,
 .navbar-light .navbar-nav .nav-link:visited {
 background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
-background-size: 220%;
+background-size: 230%;
 color: var(--lightcolor);
 display: inline-block;
 font-size: 2rem;
@@ -202,7 +196,7 @@ transform: translateX(.5rem);
 
 .nav-link span {
 display: inline-block;
-margin-right: 2.5rem;
+margin-right: 1rem;
 }
 
 /***Header**/
