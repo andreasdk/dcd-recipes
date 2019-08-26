@@ -4,6 +4,11 @@
         <h1 class="heading-primary">Register</h1>
         <form method="POST" action="" class="form-width">
             {{ form.hidden_tag() }}
+            {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+            <p class="flash-message" role="alert">
+                    {{ message }}
+            </p>
+                {% endfor %} {% endif %} {% endwith %}
             <!--Username input field-->
             <div class="form-input">
                 {% if form.username.errors %} {{ form.username(class="form-control form-input is-invalid") }}

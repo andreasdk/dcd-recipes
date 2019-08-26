@@ -6,6 +6,11 @@
                 <h1 class="heading-primary">Login</h1>
                 <form method="POST" action="">
                         {{ form.hidden_tag() }}
+                        {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+                        <div class="alert alert-{{ category }}">
+                                {{ message }}
+                            </div>
+                {% endfor %} {% endif %} {% endwith %}
                     <div class="form-input">
                             {% if form.username.errors %}
                             {{ form.username(class="form-control form-input is-invalid") }}
