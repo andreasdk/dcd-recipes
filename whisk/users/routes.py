@@ -139,7 +139,7 @@ def delete_account(username):
 
         # end session and delete user from database
 
-       session.clear())
+        session.clear()
         coll_users.remove({'_id': user.get('_id')})
         return redirect(url_for('main.home'))
 
