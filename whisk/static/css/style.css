@@ -24,6 +24,19 @@ html {
   overflow-x: hidden;
 }
 
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%; } 
+}
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%; } 
+}
+@media only screen and (min-width: 112.5em) {
+  html {
+    font-size: 75%; } 
+}
+
 body {
   background-color: var(--backgroundcolor);
   font-family: var(--primaryfont);
@@ -55,12 +68,45 @@ body {
   letter-spacing: 1.45rem;
 }
 
+@media only screen and (max-width: 37.5em) {
+  .heading-primary-main {
+    letter-spacing: 1rem;
+    font-family: 5rem;
+  }
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .heading-primary-sub {
+    letter-spacing: .5rem;
+  }
+}
+
 .heading-secondary {
   color: var(--primarycolor);
   font-size: 3.5rem;
   font-weight: 700;
   text-transform: uppercase;
 }
+
+
+@media only screen and (max-width: 56.25em) {
+  .heading-secondary {
+    font-size: 3rem; 
+  } 
+}
+@media only screen and (max-width: 37.5em) {
+  .heading-secondary {
+    font-size: 2.5rem; 
+  } 
+}
+
 
 .heading-tertiary {
   color: var(--secondarycolor);
@@ -86,11 +132,17 @@ body {
 .u-margin-bottom-large {
   margin-bottom: 8rem;
 }
-
-.u-margin-bottom-medium {
-  margin-bottom: 2rem;
+@media only screen and (max-width: 56.25em) {
+  .u-margin-bottom-big {
+    margin-bottom: 5rem !important; } 
 }
 
+.u-margin-bottom-medium {
+  margin-bottom: 4rem;
+}
+@media only screen and (max-width: 56.25em) {
+  .u-margin-bottom-medium {
+    margin-bottom: 3rem !important; } }
 .u-margin-bottom-small {
   margin-bottom: 1.5rem;
 }
@@ -154,12 +206,18 @@ margin-right: 2.5rem;
 }
 
 /***Header**/
+.header {
+  background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.8), rgba(90, 85, 96, 0.8));
+  height: 85vh;
+}
+
 .bg-video {
+  
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  opacity: .65;
+  opacity: .50;
   overflow: hidden;
 }
 
@@ -237,6 +295,15 @@ margin-right: 2.5rem;
   padding: .75rem 1.5rem;
   font-size: 1.75rem;
   line-height: 1.5;
+}
+
+.page-item.active .page-link { 
+  background-color: var(--primarycolor);
+  border-color: var(--primarycolor);
+}
+
+.page-item .page-link { 
+  color: var(--primarycolor);
 }
 
 #login {
@@ -414,30 +481,8 @@ label {
 
 
 /* Media Queries */
-@media (max-width: 600px) {
-  html {
-    font-size: 50%;
-  }
-  .logo-box {
-    left: 2rem;
-    top:2rem;
-  }
-  .logo {
-    height: 3rem;
-  }
-  .heading-primary {
-    margin-bottom: 3rem;
-  }
-  .header {
-    height: 75vh;
-  }
-  .paragraph {
-    margin-bottom: 3rem;
-  }
-
-}
-
 @media (max-width: 768px) {
   .navbar {
     text-align: center;
   }
+}
