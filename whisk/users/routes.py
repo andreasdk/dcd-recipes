@@ -137,9 +137,9 @@ def delete_account(username):
             for recipe in user_recipes:
                 coll_recipes.remove({'_id': recipe})
 
-        # remove user from session cookies and delete user from database
+        # end session and delete user from database
 
-        session.pop('username')
+       session.clear())
         coll_users.remove({'_id': user.get('_id')})
         return redirect(url_for('main.home'))
 
