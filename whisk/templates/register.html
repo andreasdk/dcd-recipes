@@ -1,6 +1,5 @@
 {% extends 'layout.html' %} {% block content %}
 
-
 <main class="section-reglog">
     <a href=" {{ url_for('main.home') }}"class="close close-icon" aria-label="Close"><span aria-hidden="true">&times;</span></a>
             <div class="reglog">
@@ -42,7 +41,7 @@
                             </div>
                             <div class="py-4">Already registered? Log in <a href="{{ url_for('users.login') }}">here.</a></div>
                             <div class="form__group">
-                                {{ form.submit(class="btn btn-white btn-block") }}
+                                {{ form.submit(class="btn btn-purple") }}
                             </div>
                         </form>
                 </div>
