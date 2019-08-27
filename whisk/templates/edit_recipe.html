@@ -1,5 +1,6 @@
 {% extends 'layout.html' %} {% block content %}
 <main class="recipe-form">
+    <a href="{{ url_for('users.account', username=session.username) }}" class="close close-icon" aria-label="Close"><span aria-hidden="true">&times;</span></a>
     <div class="container u-padding-top-lg">
         <h1 class="heading-secondary text-center">Update Recipe</h1>
         <form method="POST">
@@ -87,7 +88,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    {{ form.submit(class="btn btn-white u-margin-bottom-medium u-padding-top") }}
+                    {{ form.submit(class="btn btn-primary u-margin-bottom-medium u-padding-top") }}
                 </div>
             </div>
         </form>

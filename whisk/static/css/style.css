@@ -3,11 +3,16 @@
 /*CSS Variables*/
 
 :root {
-  --primarycolor: #7768ae;
-  --secondarycolor: #3bb273;
-  --lightcolor: #e1bc29;
-  --backgroundcolor: #e3e3e3;
-  --colorwhite: #fff;
+  --primary-color: #57BA98;
+  --primary-color-light: #65CCB8;
+  --primary-color-dark: #3B945E;
+  --secondary-color-light: #ffb900;
+  --secondary-color-dark:#ff0000;
+  --grey-color-light-1: #f7f7f7;
+  --grey-color-dark-1: #777;
+  --grey-color-dark-2: #999;
+  --grey-color-dark-3: #333;
+  --white-color: #fff;
   --primaryfont: 'Roboto Condensed', sans-serif;
   --secondaryfont: 'Cabin', sans-serif;
 }
@@ -39,23 +44,30 @@ html {
 }
 
 body {
-  background-color: var(--backgroundcolor);
+  background-color: var(--grey-color-light-1);
+  color: var(--grey-color-dark-1);
   font-family: var(--primaryfont);
   font-weight: 400;
   line-height: 1.7;
   overflow-x: hidden;
 }
 
+::selection {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
 
 /*Headings*/
 
 .heading-primary {
-  color: var(--lightcolor);
+  color: var(--primary-color);
   margin-bottom: 3rem;
   text-transform: uppercase;
 }
 
 .heading-primary-main {
+  color: var(--grey-color-light-1);
   display: block;
   font-size: 6rem;
   font-weight: 500;
@@ -64,6 +76,7 @@ body {
 }
 
 .heading-primary-sub {
+  color: var(--grey-color-light-1);
   display: block;
   font-size: 2.25rem;
   font-weight: 500;
@@ -73,7 +86,7 @@ body {
 @media only screen and (max-width: 37.5em) {
   .heading-primary-main {
     letter-spacing: 1rem;
-    font-family: 5rem;
+    font-size: 5rem;
   }
 }
 
@@ -84,7 +97,9 @@ body {
 }
 
 .heading-secondary {
-  color: var(--primarycolor);
+  background-image: linear-gradient(to right, var(--primary-color-light), var(--primary-color-dark));
+  -webkit-background-clip: text;
+  color: transparent;
   font-size: 3.5rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -104,7 +119,7 @@ body {
 
 
 .heading-tertiary {
-  color: var(--secondarycolor);
+  color: var(--secondary-color);
   font-size: 1.8rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -155,14 +170,13 @@ body {
 }
 /***Navbar**/
 /**Changes navbar background color on scroll**/
-.navbar.scrolled {
-  background-color: var(--primarycolor);
-  transition: background 1.5ms;
+#navbar__whisk {
+  background-color: var(--grey-color-dark-3);
 }
 
 /**Changes navbar toggler background to circle**/
 .navbar-toggler {
-background-color: var(--backgroundcolor);
+background-color: var(--grey-color-light-1);
 border-radius: 50%;
 height: 3.5rem;
 width: 3.5rem;
@@ -172,7 +186,7 @@ width: 3.5rem;
 .navbar-light .navbar-nav .nav-link:visited {
 background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
 background-size: 230%;
-color: var(--lightcolor);
+color: var(--grey-color-light-1);
 display: inline-block;
 font-size: 2rem;
 font-weight: 300;
@@ -188,7 +202,7 @@ transition: all .4s;
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link:active {
 background-position: 100%;
-color: var(--primarycolor);
+color: var(--primary-color);
 transform: translateX(.5rem);
 }
 
@@ -250,40 +264,32 @@ margin-right: 1rem;
 }
 
 .btn-white {
-  background-color: #fff;
-  color: var(--primarycolor);
+  background-color: var(--white-color);
+  color: var(--grey-color-dark-1);
 }
 
-.btn-purple {
-  background-color: var(--primarycolor);
-  color: var(--backgroundcolor);
+.btn-primary {
+  background-color: var(--primary-color);
+  border: var(--primary-color);
+  color: var(--white-color);
 }
 
-.btn-purple:hover {
-  color: var(--backgroundcolor);
+.btn-primary:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
 }
 
 .btn-edit {
-  background-color: var(--primarycolor);
-  color: var(--backgroundcolor);
+  background-color: var(--primary-color);
+  color: var(--white-color);
   border-radius: 0;
   width: 100%;
 }
 
 .btn-edit:hover {
-  color: var(--backgroundcolor);
+  color: var(--white-color);
 }
 
-.btn-delete {
-  border-radius: 0;
-  background-color: var(--lightcolor);
-  color: var(--backgroundcolor);
-  width: 100%;
-}
-
-.btn-delete:hover {
-  color: var(--backgroundcolor);
-}
 /**Flash Message**/
 .flash-message {
   color: var(--backgroundcolor);
@@ -297,12 +303,12 @@ margin-right: 1rem;
 }
 
 .page-item.active .page-link { 
-  background-color: var(--primarycolor);
-  border-color: var(--primarycolor);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 .page-item .page-link { 
-  color: var(--primarycolor);
+  color: var(--primary-color);
 }
 
 /**Forms**/
@@ -311,12 +317,12 @@ margin-right: 1rem;
   top: 0.3em;
   right: 0.5em;
   font-size: 3.5rem;
-  color: #fff;
+  color: var(--white-color);
 }
 
 .section-reglog {
   padding: 15rem 0;
-  background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.8), rgba(90, 85, 96, 0.8));
+  background-image: linear-gradient(to right bottom, var(--primary-color-light), var(--primary-color-dark));
   height: 100vh;
 }
 
@@ -372,14 +378,12 @@ margin-right: 1rem;
       width: 100%; } }
   .form__input:focus {
     outline: none;
-  border-bottom: 5px solid var(--lightcolor);
+  border-bottom: 5px solid var(--primary-color);
   box-shadow: 0.1rem 1rem rgba(0, 0, 0, 0.1);}
   .form__input:focus:invalid {
-    border-bottom: 3px solid #ff0000; }
+    border-bottom: 3px solid var(--secondary-color-dark); }
   .form__input::-webkit-input-placeholder {
-    color: #999; }
-
-
+    color: var(--grey-color-dark-2); }
 
 .form-container {
   position: relative;
@@ -507,14 +511,14 @@ label {
 /**Footer**/
 /**Centering footer items, and giving footer minimum height**/
 .footer {
-  background-color: var(--primarycolor);
+  background-color: var(--grey-color-dark-3);
   display: flex;
   justify-content: center;
   min-height: 10rem;
 }
 /**Setting footer items color, size and top padding**/
 .footer-icon a i {
-  color: var(--lightcolor);
+  color: var(--grey-color-light-1);
   font-size: 4rem;
   padding-top: 3rem;
 }

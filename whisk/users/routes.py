@@ -42,7 +42,7 @@ def register():
                              'pass': hash_pass, 'user_avatar': user_avatar, "user_recipes": []})
             session['username'] = request.form['username']
             session['logged_in'] = True
-            flash('Your account has been created! You are now able to log in', 'success')
+            flash('Your account has been created! You are now able to log in')
             return redirect(url_for('main.home'))
 
         flash('Sorry, username already taken. Please try another.')
@@ -69,7 +69,7 @@ def login():
                 return redirect(url_for('main.home'))
        
             #  else if invalid username/password match    
-            flash('Login Unsuccessful. Please check email and password', 'danger')
+            flash('Login Unsuccessful. Please check username and password')
             return redirect(url_for('users.login'))
     return render_template('login.html', form=form, title='Login')
 
