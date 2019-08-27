@@ -1,4 +1,6 @@
-{% extends 'layout.html' %} {% block content %}
+{% extends 'layout.html' %}
+{% block nav %} {% include 'includes/_navbar.html' %} {% endblock %}
+{% block content %}
 <div class="container px-0 recipe_container">
     <div class="row align-items-start">
         <div class="col-md-6 text-center">
@@ -54,3 +56,5 @@
 </div>
 
 {% endblock %}
+
+{% block footer %} {% include 'includes/_footer.html' %} {% endblock %}
