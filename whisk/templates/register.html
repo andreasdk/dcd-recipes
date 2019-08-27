@@ -1,46 +1,55 @@
 {% extends 'layout.html' %} {% block content %}
-<section id="register">
-    <div class="form-container">
-        <h1 class="heading-primary">Register</h1>
-        <form method="POST" action="" class="form-width">
-            {{ form.hidden_tag() }}
-            {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-            <p class="flash-message" role="alert">
-                    {{ message }}
-            </p>
-                {% endfor %} {% endif %} {% endwith %}
-            <!--Username input field-->
-            <div class="form-input">
-                {% if form.username.errors %} {{ form.username(class="form-control form-input is-invalid") }}
-                <div class="invalid-feedback">
-                    {% for error in form.username.errors %}
-                    <span>{{ error }}</span> {% endfor %}
+
+
+<main class="section-reglog">
+    <a href=" {{ url_for('main.home') }}"class="close close-icon" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+            <div class="reglog">
+                <div class="reglog__form">
+                        <h1 class="heading-primary">Register</h1>
+                        <form method="POST" action="" class="form">
+                            {{ form.hidden_tag() }}
+                            {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+                            <p class="flash-message" role="alert">
+                                    {{ message }}
+                            </p>
+                                {% endfor %} {% endif %} {% endwith %}
+                            <!--Username input field-->
+                            <div class="form__group">
+                                {% if form.username.errors %} {{ form.username(class="form-control form__input is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.username.errors %}
+                                    <span>{{ error }}</span> {% endfor %}
+                                </div>
+                                {% else %} {{ form.username(autofocus=true, class="form__input", required=true, placeholder="New username") }} {% endif %}
+                            </div>
+                            <!--Password Input Field-->
+                            <div class="form__group">
+                                {% if form.password.errors %} {{ form.password(class="form-control form__input is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.password.errors %}
+                                    <span>{{ error }}</span> {% endfor %}
+                                </div>
+                                {% else %} {{ form.password(required=true, class="form__input", placeholder="Enter password") }} {% endif %}
+                            </div>
+                            <!--Confirm Password-->
+                            <div class="form__group">
+                                {% if form.confirm_password.errors %} {{ form.confirm_password(class="form-control form__input is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.confirm_password.errors %}
+                                    <span>{{ error }}</span> {% endfor %}
+                                </div>
+                                {% else %} {{ form.confirm_password(required=true, class="form__input", placeholder="Confirm password") }} {% endif %}
+                            </div>
+                            <div class="py-4">Already registered? Log in <a href="{{ url_for('users.login') }}">here.</a></div>
+                            <div class="form__group">
+                                {{ form.submit(class="btn btn-white btn-block") }}
+                            </div>
+                        </form>
                 </div>
-                {% else %} {{ form.username(autofocus=true, class="form-input-field", required=true, placeholder="New username") }} {% endif %}
-            </div>
-            <!--Password Input Field-->
-            <div class="form-input">
-                {% if form.password.errors %} {{ form.password(class="form-control form-input is-invalid") }}
-                <div class="invalid-feedback">
-                    {% for error in form.password.errors %}
-                    <span>{{ error }}</span> {% endfor %}
-                </div>
-                {% else %} {{ form.password(required=true, class="form-input-field", placeholder="Enter password") }} {% endif %}
-            </div>
-            <!--Confirm Password-->
-            <div class="form-input">
-                {% if form.confirm_password.errors %} {{ form.confirm_password(class="form-control form-input is-invalid") }}
-                <div class="invalid-feedback">
-                    {% for error in form.confirm_password.errors %}
-                    <span>{{ error }}</span> {% endfor %}
-                </div>
-                {% else %} {{ form.confirm_password(required=true, class="form-input-field", placeholder="Confirm password") }} {% endif %}
-            </div>
-            <div class="pb-4 text-white">Already registered? Log in <a href="{{ url_for('users.login') }}" class="text-white">here.</a></div>
-            <div class="form-group">
-                {{ form.submit(class="btn btn-white btn-block") }}
-            </div>
-        </form>
-    </div>
-</section>
+                    
+            </div>    
+</main>
+
+
+
 {% endblock %}
