@@ -268,12 +268,14 @@ margin-right: 1rem;
   color: var(--grey-color-dark-1);
 }
 
-.btn-purple {
+.btn-primary {
   background-color: var(--primary-color);
+  border: var(--primary-color);
   color: var(--white-color);
 }
 
-.btn-purple:hover {
+.btn-primary:hover {
+  background-color: var(--primary-color);
   color: var(--white-color);
 }
 
