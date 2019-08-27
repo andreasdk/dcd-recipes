@@ -16,7 +16,7 @@ class RecipeForm(FlaskForm):
     time = IntegerField('Cooking Time',
                             validators=[DataRequired()])
     image = StringField('Recipe Image',
-                            validators=[DataRequired()])
+                            validators=[Optional()])
     ingredient_name = TextAreaField('Ingredient Name',
                             validators=[DataRequired()])
     directions = TextAreaField('Directions',
