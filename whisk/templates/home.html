@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
-
-{% block body %}
+{% block nav %} {% include 'includes/_navbar.html' %} {% endblock %}
+{% block content %}
 <header class="header">
     <!--Header Background Video-->
     <div class="bg-video">
@@ -40,3 +40,5 @@
     </ul>
 </nav>
 {% endblock %}
+
+{% block footer %} {% include 'includes/_footer.html' %} {% endblock %}

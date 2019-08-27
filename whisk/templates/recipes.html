@@ -1,25 +1,31 @@
 {% extends 'layout.html' %}
+{% block nav %} {% include 'includes/_navbar.html' %} {% endblock %}
+{% block content %}
 
-{% block body %}
-
-<section class="container-fluid">
-    <div class="u-center-text u-margin-bottom-large u-padding-top">
-        <h2 class="heading-secondary">Our Latest Recipes</h2>
+<section class="">
+    <div class="row u-center-text u-margin-bottom-large u-padding-top">
+        <div class="col-12">
+                <h2 class="heading-secondary">Our Latest Recipes</h2>
+        </div>
+        
     </div>
     <div class="row u-margin-bottom-large">
         {% for recipe in recipes %}
             {% include "includes/_cards.html" %}
         {% endfor %}
     </div>
+    <nav aria-label="pagination">
+            <ul class="pagination pagination-lg justify-content-center">
+                {% for page_number in pages %} {% if page_number == current_page %}
+                <li class="page-item active"><a class="page-link">{{ page_number }}</a></li>
+                {% else %}
+                <li class="page-item"><a class="page-link" href="{{ url_for('recipes.all_recipes', current_page=page_number) }}">{{ page_number }}</a></li>
+                {% endif %} {% endfor %}
+            </ul>
+        </nav>
 </section>
 
-<nav aria-label="pagination">
-    <ul class="pagination pagination-lg justify-content-center">
-        {% for page_number in pages %} {% if page_number == current_page %}
-        <li class="page-item active"><a class="page-link">{{ page_number }}</a></li>
-        {% else %}
-        <li class="page-item"><a class="page-link" href="{{ url_for('recipes.all_recipes', current_page=page_number) }}">{{ page_number }}</a></li>
-        {% endif %} {% endfor %}
-    </ul>
-</nav>
+
 {% endblock %}
+
+{% block footer %} {% include 'includes/_footer.html' %} {% endblock %}

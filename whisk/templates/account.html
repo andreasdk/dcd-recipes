@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
-{% block body %}
+{% block nav %} {% include 'includes/_navbar.html' %} {% endblock %}
+{% block content %}
 {% if session.username %}
 
 <div class="container">
@@ -43,3 +44,5 @@
 
 {% endif %}
 {% endblock %}
+
+{% block footer %} {% include 'includes/_footer.html' %} {% endblock %}
