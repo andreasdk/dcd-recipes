@@ -3,7 +3,7 @@
     <div class="row align-items-start py-5">
         <div class="col-md-6 text-center">
             <h1 class="heading-primary">{{ recipe.recipe_name }}</h1>
-            <p class="paragraph">{{ recipe.description }}</p>
+            <p class="paragraph px-3">{{ recipe.description }}</p>
 
             <div class="row pt-5">
                 <div class="col-6">
@@ -14,7 +14,13 @@
                 <div class="col-6">
                     <i class="fas fa-check-circle recipe_icon"></i>
                     <h4>Diet Type</h4>
+                    <!--If recipe diet type exists in DB-->
+                    {% if recipe.diet_type %}
                     <p class="paragraph">{{ recipe.diet_type }}</p>
+                    {% else %}
+                    <!--Else display text so field is not blank-->
+                    <p class="paragraph">None Specified</p>
+                    {% endif %}
                 </div>
             </div>
 
@@ -33,14 +39,20 @@
         </div>
 
         <div class="col-md-6">
+            <!--If recipe image exists in DB-->
+            {% if recipe.image %}
             <img class="img-fluid" src="{{ recipe.image }}" alt="recipe image">
+            {% else %}
+            <!--Else display placeholder recipe image-->
+            <img src="{{ url_for('static', filename='img/recipe-placeholder.jpg') }}" class="img-fluid" alt="Recipe" lazyload="on">
+            {% endif %}
         </div>
     </div>
 
-    <div class="row pt-5">
-        <div class="col-sm-12 col-md-6">
+    <div class="row py-5">
+        <div class="col-sm-12 col-md-6 pb-5 text-center">
             <h2 class="heading-primary">Ingredients</h2>
-            <ul>
+            <ul class="recipe_list px-3">
                 {% for ing in recipe.ingredient_name %}
                 <li>
                     {{ ing }}
@@ -48,9 +60,9 @@
                 {% endfor %}
             </ul>
         </div>
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-md-6 text-center">
             <h2 class="heading-primary">Directions</h2>
-            <ol>
+            <ol class="recipe_list px-4">
                 {% for dir in recipe.directions %}
                 <li>
                     {{ dir }}
