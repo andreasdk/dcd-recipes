@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField, IntegerField
+from wtforms import StringField, SubmitField, TextAreaField, IntegerField, SelectField
 from wtforms.validators import DataRequired, Optional
 
 class RecipeForm(FlaskForm):
@@ -7,10 +7,10 @@ class RecipeForm(FlaskForm):
                             validators=[DataRequired()])
     description = TextAreaField('Description',
                             validators=[DataRequired()])
-    meal_type = StringField('Meal Type',
-                            validators=[DataRequired()])
-    allergens = StringField('Recipe Category',
-                            validators=[Optional()])
+    meal_type = SelectField(u'Meal Type',
+                            choices=[('Breakfast', 'Breakfast'), ('Lunch', 'Lunch'), ('Dinner', 'Dinner'), ('Snack', 'Snack'), ('Dessert', 'Dessert')], validators=[DataRequired()])
+    diet_type = SelectField(u'Diet Type',
+                            choices=[('Dairy-Free', 'Dairy-Free'), ('Gluten-Free', 'Gluten-Free'), ('Nut-Free', 'Peanut-Free'), ('Vegan', 'Vegan'), ('Vegetarian', 'Vegetarian')], validators=[Optional()])
     prep_time = IntegerField('Prep Time',
                             validators=[DataRequired()])
     time = IntegerField('Cooking Time',
