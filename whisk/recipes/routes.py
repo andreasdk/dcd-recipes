@@ -26,21 +26,27 @@ def add_recipe():
                                ].lower()})
     author = coll_users.find_one({"username": session["username"]})["_id"]
 
+    
+
     if request.method == 'GET':
         return render_template('add_recipe.html', form=form,
                                title='Add Recipe')
+    
+    ingredients = request.form.get("ingredient_name").splitlines()
+    directions = request.form.get("directions").splitlines()
+    
 
     if request.method == 'POST':
         recipe = coll_recipes.insert_one({
             'recipe_name': request.form['recipe_name'],
             'description': request.form['description'],
             'meal_type': request.form['meal_type'],
-            'allergens': request.form['allergens'],
+            'diet_type': request.form['diet_type'],
             'prep_time': request.form['time'],
             'time': request.form['time'],
             'image': request.form['image'],
-            'ingredient_name': request.form['ingredient_name'],
-            'directions': request.form['directions'],
+            'ingredient_name': ingredients,
+            'directions': directions,
             'author': author,
             })
         coll_users.update_one({'_id': ObjectId(author)},
