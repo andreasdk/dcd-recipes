@@ -1,12 +1,10 @@
-{% extends 'layout.html' %}
-{% block nav %} {% include 'includes/_navbar.html' %} {% endblock %}
-{% block content %}
+{% extends 'layout.html' %} {% block nav %} {% include 'includes/_navbar.html' %} {% endblock %} {% block content %}
 <div class="container px-0 recipe_container">
-    <div class="row align-items-start">
+    <div class="row align-items-start py-5">
         <div class="col-md-6 text-center">
             <h1 class="heading-primary">{{ recipe.recipe_name }}</h1>
             <p class="paragraph">{{ recipe.description }}</p>
-            
+
             <div class="row pt-5">
                 <div class="col-6">
                     <i class="fas fa-utensil-spoon recipe_icon"></i>
@@ -16,7 +14,7 @@
                 <div class="col-6">
                     <i class="fas fa-check-circle recipe_icon"></i>
                     <h4>Diet Type</h4>
-                    <p class="paragraph">{{ recipe.allergens }}</p>
+                    <p class="paragraph">{{ recipe.diet_type }}</p>
                 </div>
             </div>
 
@@ -40,21 +38,27 @@
     </div>
 
     <div class="row pt-5">
-        <div class="col-12 text-center">
+        <div class="col-sm-12 col-md-6">
             <h2 class="heading-primary">Ingredients</h2>
-            <p class="paragraph">{{ recipe.ingredient_name }}</p>
+            <ul>
+                {% for ing in recipe.ingredient_name %}
+                <li>
+                    {{ ing }}
+                </li>
+                {% endfor %}
+            </ul>
         </div>
-    </div>
-
-    <div class="row py-5">
-        <div class="col-12">
-            <h2 class="heading-primary text-center">Directions</h2>
-            <p class="paragraph">{{ recipe.directions }}</p>
+        <div class="col-sm-12 col-md-6">
+            <h2 class="heading-primary">Directions</h2>
+            <ol>
+                {% for dir in recipe.directions %}
+                <li>
+                    {{ dir }}
+                </li>
+                {% endfor %}
+            </ol>
         </div>
-        
     </div>
 </div>
 
-{% endblock %}
-
-{% block footer %} {% include 'includes/_footer.html' %} {% endblock %}
+{% endblock %} {% block footer %} {% include 'includes/_footer.html' %} {% endblock %}
