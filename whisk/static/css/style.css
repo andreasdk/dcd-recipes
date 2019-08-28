@@ -508,6 +508,11 @@ label {
   z-index: 1;
 }
 
+/**Single Recipe Page**/
+.recipe_list {
+  font-size: 1.6rem;
+}
+
 /**Footer**/
 /**Centering footer items, and giving footer minimum height**/
 .footer {
