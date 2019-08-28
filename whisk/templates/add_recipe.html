@@ -30,16 +30,16 @@
                         <label for="meal_type">
                             Meal Type
                         </label>
-                        {{ form.meal_type(class="form-control form-input", id="meal_type", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Dessert") }}
+                        {{ form.meal_type(class="form-control form-input custom-select", id="meal_type") }}
                     </div>
                 </div>
                 <!-- allergens -->
                 <div class="col-md-6 col-12">
                     <div class="form-group">
-                        <label for="allergens">
-                            Allergens
+                        <label for="diet_type">
+                            Diet Type
                         </label>
-                        {{ form.allergens(class="form-control form-input ", id="allergens", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Gluten Free") }}
+                        {{ form.diet_type(class="form-control form-input custom-select", id="diet_type", placeholder="Diet Type") }}
                     </div>
                 </div>
                 <!-- ingredient -->
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    {{ form.submit(class="btn btn-purple u-margin-bottom-medium u-padding-top") }}
+                    {{ form.submit(class="btn btn-primary u-margin-bottom-medium u-padding-top") }}
                 </div>
             </div>
         </form>
