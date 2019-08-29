@@ -504,7 +504,7 @@ label {
 
 .paragraph {
   color: inherit;
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-family:var(--secondaryfont);
 }
 
@@ -548,7 +548,11 @@ label {
 
 /**Single Recipe Page**/
 .recipe_list {
-  font-size: 1.6rem;
+  font-size: 2rem;
+}
+
+.recipe-ul-list {
+  list-style-type: none;
 }
 
 /**Footer**/
