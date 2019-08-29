@@ -52,7 +52,7 @@
     <div class="row py-5">
         <div class="col-sm-12 col-md-6 pb-5 text-center">
             <h2 class="heading-primary">Ingredients</h2>
-            <ul class="recipe_list px-3">
+            <ul class="recipe_list recipe-ul-list px-3">
                 {% for ing in recipe.ingredient_name %}
                 <li>
                     {{ ing }}
@@ -62,7 +62,7 @@
         </div>
         <div class="col-sm-12 col-md-6 text-center">
             <h2 class="heading-primary">Directions</h2>
-            <ol class="recipe_list px-4">
+            <ol class="recipe_list px-5">
                 {% for dir in recipe.directions %}
                 <li>
                     {{ dir }}
