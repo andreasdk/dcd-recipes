@@ -145,3 +145,32 @@ def delete_recipe(recipe_id):
 
     flash("Sorry you can only delete your own recipes!")
     return redirect(url_for('recipes.recipe', recipe_id=recipe_id))
+
+# ----- SEARCH ----- #
+@recipes.route('/search')
+def search():
+
+    
+    #  Results per page
+    per_page = 8
+    current_page = int(request.args.get('current_page', 1))
+    #  Input term for search query
+    search_query = request.args.get('search_query')
+    #  Results for search sorted by ID
+    results = coll_recipes.find({'$text': {'$search': str(search_query)}}, {"score": {"$meta": 'textScore'}}).sort('_id', pymongo.ASCENDING).skip((current_page -1)*per_page).limit(per_page)
+    # Pagination
+    results_count = coll_recipes.find({'$text': {'$search': str(search_query)}}).count()
+    results_pages = range(1, int(math.ceil(results_count / per_page)) + 1)
+    total_page_no = int(math.ceil(results_count/per_page))
+    
+    
+    return render_template('search.html', 
+                        per_page = per_page,
+                        current_page=current_page, 
+                        results_count=results_count,
+                        search_query=search_query,
+                        results=results,
+                        results_pages=results_pages,
+                        total_page_no=total_page_no,
+                        )    
+            
