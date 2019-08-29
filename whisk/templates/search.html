@@ -1,0 +1,50 @@
+{% extends 'layout.html' %} 
+{% block nav %} {% include 'includes/_navbar.html' %} {% endblock %}
+{% block content %}
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-12 pt-5">
+            <form action="{{ url_for('recipes.search', search_query=search_query, current_page=current_page) }}" class="search pt-5">
+                <input type="text" class="search__input" id="search_query" name="search_query" placeholder="Search recipes">
+                <button class="search__button">
+                    <i class="fas fa-search search__icon"></i>
+                </button>
+                </form>
+        </div>
+    </div>
+
+     <!-- Search Results Count -->
+        <!-- Zero Results -->
+        {% if total_results == 0 %}
+        <h3 class="heading-tertiary pt-3">Sorry no results found</h3>
+        {% elif results_count==1 %}
+        <!-- 1 Result Found -->
+        <h3 class="heading-tertiary pt-3">Your search for "<span>{{ search_query }}</span>" produced <span>1</span> search result</h3>
+        {% else %}
+        <h3 class="heading-tertiary pt-3">Your search for "<span>{{ search_query }}</span>" produced <span>{{ results_count }}</span> search results</h3>
+        {% endif %}
+    
+    <div class="row u-margin-bottom-large">
+        {% for result in results %}
+        <div class="col-sm-12 col-md-3 my-3">
+            <div class="card card_recipe">
+                {% if result.image %}
+                <img src="{{ result.image }}" alt="Recipe Image" class="card_img img-fluid" lazyload="on">
+                {% else %}
+                <img src="{{ url_for('static', filename='img/recipe-placeholder.jpg') }}" class="card_img img-fluid" alt="Recipe" lazyload="on"> 
+                {% endif %}
+                <div class="card-img-overlay">
+                    <h6 class="card_title">{{ result.recipe_name }}</h6>
+                </div>
+                <a href="{{ url_for('recipes.recipe', recipe_id=result._id) }}"></a>
+            </div>
+        </div>
+        {% endfor %}
+        
+    </div>
+    
+</div>
+    
+{% endblock %}
+
+{% block footer %} {% include 'includes/_footer.html' %} {% endblock %}

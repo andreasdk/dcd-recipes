@@ -2,10 +2,19 @@
 {% block nav %} {% include 'includes/_navbar.html' %} {% endblock %}
 {% block content %}
 
-<section class="">
+<section class="pt-5">
     <div class="row u-center-text u-margin-bottom-large u-padding-top">
-        <div class="col-12">
-                <h2 class="heading-secondary">Our Latest Recipes</h2>
+        <div class="col-12 pt-5">
+            <h2 class="heading-secondary pt-5">Search Our Recipes</h2>
+        </div>
+
+        <div class="col-12 pt-3">
+            <form action="{{ url_for('recipes.search', search_query=search_query, current_page=current_page) }}" class="search pt-5">
+                <input type="text" class="search__input" id="search_query" name="search_query" placeholder="Search recipes">
+                <button class="search__button">
+                    <i class="fas fa-search search__icon"></i>
+                </button>
+            </form>
         </div>
         
     </div>
@@ -15,14 +24,14 @@
         {% endfor %}
     </div>
     <nav aria-label="pagination">
-            <ul class="pagination pagination-lg justify-content-center">
-                {% for page_number in pages %} {% if page_number == current_page %}
-                <li class="page-item active"><a class="page-link">{{ page_number }}</a></li>
-                {% else %}
-                <li class="page-item"><a class="page-link" href="{{ url_for('recipes.all_recipes', current_page=page_number) }}">{{ page_number }}</a></li>
-                {% endif %} {% endfor %}
-            </ul>
-        </nav>
+        <ul class="pagination pagination-lg justify-content-center">
+            {% for page_number in pages %} {% if page_number == current_page %}
+            <li class="page-item active"><a class="page-link">{{ page_number }}</a></li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="{{ url_for('recipes.all_recipes', current_page=page_number) }}">{{ page_number }}</a></li>
+            {% endif %} {% endfor %}
+        </ul>
+    </nav>
 </section>
 
 
