@@ -71,9 +71,20 @@ def all_recipes():
 @recipes.route('/recipes/<recipe_id>', methods=['GET', 'POST'])
 def recipe(recipe_id):
 
+    
+
     single_recipe = coll_recipes.find_one({"_id": ObjectId(recipe_id)})
 
-    return render_template('recipe.html',
+    if 'logged_in' in session:
+        user = coll_users.find_one({'username': session['username']})
+        author = coll_users.find_one({'username': session['username'
+                                 ]})['_id']
+        return render_template('recipe.html', recipe=single_recipe,
+                               title=single_recipe['recipe_name'],
+                               user=user, author=author)
+    else:
+
+        return render_template('recipe.html',
                                recipe=single_recipe, title=single_recipe['recipe_name'])
        
 # ----- UPDATE ----- #

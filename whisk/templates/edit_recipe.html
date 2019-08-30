@@ -2,7 +2,7 @@
 <main class="recipe-form">
     <a href="{{ url_for('users.account', username=session.username) }}" class="close close-icon" aria-label="Close"><span aria-hidden="true">&times;</span></a>
     <div class="container u-padding-top-lg">
-        <h1 class="heading-secondary text-center">Update Recipe</h1>
+        <h1 class="heading-secondary text-center text-white">Update Recipe</h1>
         <form method="POST">
             {{ form.hidden_tag() }}
             <div class="row">
@@ -36,10 +36,10 @@
                 <!-- allergens -->
                 <div class="col-md-6 col-12">
                     <div class="form-group">
-                        <label for="allergens">
-                            Allergens
+                        <label for="diet_type">
+                            Diet Type
                         </label>
-                        {{ form.allergens(class="form-control form-input ", id="allergens", autocomplete="off") }}
+                        {{ form.diet_type(class="form-control form-input ", id="diet_type", autocomplete="off") }}
                     </div>
                 </div>
                 <!-- ingredient -->
@@ -87,8 +87,8 @@
                         {{ form.directions(class="form-control form-input u-margin-bottom-medium ", id="directions", autocomplete="off") }}
                     </div>
                 </div>
-                <div class="form-group">
-                    {{ form.submit(class="btn btn-primary u-margin-bottom-medium u-padding-top") }}
+                <div class="form-group m-auto">
+                    {{ form.submit(class="btn btn-white u-margin-bottom-medium u-padding-top") }}
                 </div>
             </div>
         </form>
