@@ -289,6 +289,18 @@ margin-right: 1rem;
   color: var(--white-color);
 }
 
+.btn-delete {
+  background-color: var(--secondary-color-dark);
+  color: var(--white-color);
+  border-radius: 0;
+  width: 100%;
+}
+
+.btn-delete:hover {
+  color: var(--white-color);
+}
+
+
 /**Flash Message**/
 .flash-message {
   color: var(--backgroundcolor);
@@ -507,6 +519,7 @@ label {
   font-size: 2rem;
   font-family:var(--secondaryfont);
 }
+
 
 /**Recipe Card**/
 .card {
