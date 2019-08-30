@@ -83,8 +83,8 @@ def account(username):
     user_id = coll_users.find_one({'username': session['username']})['_id']
     user_avatar = coll_users.find_one({'username': session['username']})['user_avatar']
     user_recipes = coll_recipes.find({'author': user_id}).sort([('recipe_name', 1)])
-
-    return render_template('account.html', username=username, user_avatar=user_avatar, user_recipes=user_recipes, title="My Account")
+    count = coll_recipes.find({'author': user_id}).count()
+    return render_template('account.html', username=username, user_avatar=user_avatar, user_recipes=user_recipes, count=count, title="My Account")
 
 # ----- UPDATE PASSWORD ----- #
 @users.route('/edit/<username>/', methods=['GET', 'POST'])
