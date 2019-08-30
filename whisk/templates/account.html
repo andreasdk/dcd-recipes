@@ -24,9 +24,9 @@
         <div class="container-fluid">
             <div class="row">
               {% for user_recipe in user_recipes %}
-              <div class="col-sm-12 col-md-3 my-3">
+              <div class="col-sm-12 col-md-6 my-3">
                   <div class="card card_recipe">
-                      <img src="{{ user_recipe.image }}" alt="Recipe Image" class="card_img img-fluid" lazyload="on">
+                      <img src="{{ user_recipe.image }}" alt="Recipe Image" class="img-fluid" lazyload="on">
                       <div class="card-img-overlay">
                           <h6 class="card_title">{{ user_recipe.recipe_name }}</h6>   
                       </div>
