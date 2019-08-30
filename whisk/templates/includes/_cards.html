@@ -1,9 +1,9 @@
 <div class="col-sm-12 col-md-3 my-3">
     <div class="card card_recipe">
         {% if recipe.image %}
-        <img src="{{ recipe.image }}" alt="Recipe Image" class="card_img img-fluid" lazyload="on">
+        <img src="{{ recipe.image }}" alt="Recipe Image" class="img-fluid" lazyload="on">
         {% else %}
-        <img src="{{ url_for('static', filename='img/recipe-placeholder.jpg') }}" class="card_img img-fluid" alt="Recipe" lazyload="on">
+        <img src="{{ url_for('static', filename='img/recipe-placeholder.jpg') }}" class="img-fluid" alt="Recipe" lazyload="on">
         {% endif %}
         <div class="card-img-overlay">
             <h6 class="card_title">{{ recipe.recipe_name }}</h6>   

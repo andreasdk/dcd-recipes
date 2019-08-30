@@ -514,7 +514,6 @@ label {
 }
 
 .card_recipe {
-  background-color: #040304;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   color: #fff;
   font-family: var(--primaryfont);
@@ -532,18 +531,19 @@ label {
   top: 0;
 }
 
-.card_img {
-  opacity: 0.75;
-}
+
 
 .card_title {
   bottom: 0;
-  font-size:2.5rem;
+  color: var(--grey-color-light-1);
+  font-size:2rem;
   font-weight: 800;
   letter-spacing: -0.4px;
   margin-bottom: 1rem;
   position: absolute;
   z-index: 1;
+  background-color: var(--grey-color-dark-3);
+  padding: .5rem;
 }
 
 /**Single Recipe Page**/
