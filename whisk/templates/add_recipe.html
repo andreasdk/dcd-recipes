@@ -2,7 +2,7 @@
 <main class="recipe-form">
     <a href="{{ url_for('users.account', username=session.username) }}" class="close close-icon" aria-label="Close"><span aria-hidden="true">&times;</span></a>
     <div class="container u-padding-top-lg">
-        <h1 class="heading-secondary text-center">New Recipe</h1>
+        <h1 class="heading-secondary text-center text-white">New Recipe</h1>
         <form action="{{ url_for('recipes.add_recipe') }}" method="POST">
             {{ form.hidden_tag() }}
             <div class="row">
@@ -78,7 +78,7 @@
                         {{ form.image(class="form-control form-input", id="image", autocomplete="off", placeholder="Insert URL to image") }}
                     </div>
                 </div>
-
+                <!-- recipe directions -->
                 <div class="col-12">
                     <div class="form-group">
                         <label for="directions">
@@ -87,8 +87,9 @@
                         {{ form.directions(class="form-control form-input u-margin-bottom-medium ", id="directions", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Preheat the oven to 180C/160C Fan/Gas 4. Mix the egg whites, sugar, coconut, lime zest and juice in a bowl.") }}
                     </div>
                 </div>
-                <div class="form-group">
-                    {{ form.submit(class="btn btn-primary u-margin-bottom-medium u-padding-top") }}
+                <!-- submit button -->
+                <div class="form-group m-auto">
+                    {{ form.submit(class="btn btn-white u-margin-bottom-medium u-padding-top") }}
                 </div>
             </div>
         </form>
