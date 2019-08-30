@@ -71,15 +71,15 @@ This site was built using Bootstrap, as well as refactored designs I used in my 
 
 I used a charcoal color for the navbar and header, and then a mid green color (#57ba98) as the primary color for headings, buttons, and backgrounds. My goal was to use different tones of one color as the primary colors so that the overall design is cohesive.
 
-- ![#57BA98](https://placehold.it/15/57BA98/57BA98) `#57BA98` (**mid-green** - *primary color*)
-- ![#65CCB8](https://placehold.it/15/65CCB8/65CCB8) `#65CCB8` (**light green** - *primary color light*)
-- ![#3B945E](https://placehold.it/15/3B945E/3B945E) `#3B945E` (**dark green** - *primary color dark*)
-- ![#ff0000](https://placehold.it/15/ff0000/ff0000) `#ff0000` (**red** - *secondary color*)
+- ![#57BA98](https://placehold.it/15/57BA98/57BA98) `#57BA98` (**mid-green** - *primary-color*)
+- ![#65CCB8](https://placehold.it/15/65CCB8/65CCB8) `#65CCB8` (**light green** - *primary-color-light*)
+- ![#3B945E](https://placehold.it/15/3B945E/3B945E) `#3B945E` (**dark green** - *primary-color-dark*)
+- ![#ff0000](https://placehold.it/15/ff0000/ff0000) `#ff0000` (**red** - *secondary-color*)
 - ![#f7f7f7](https://placehold.it/15/f7f7f7/f7f7f7) `#f7f7f7` (**light grey** - *grey-color-light-1*)
 - ![#777](https://placehold.it/15/777/777) `#777` (**dark grey** - *grey-color-dark-1*)
 - ![#999](https://placehold.it/15/999/999) `#999` (**dark grey** - *grey-color-dark-2*)
 - ![#333](https://placehold.it/15/333/333) `#333` (**charcoal grey** - *grey-color-dark-3*)
-- ![#fff](https://placehold.it/15/fff/fff) `#fff` (**white** - *white-color)
+- ![#fff](https://placehold.it/15/fff/fff) `#fff` (**white** - *white-color*)
 
 #### Icons
 - [Font Awesome](https://fontawesome.com/)
