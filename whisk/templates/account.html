@@ -12,10 +12,11 @@
           </div>
           <div class="account_username">
               <h2 class="heading-primary">{{ username }}</h2>
+              <p class="paragraph">Recipes: {{ count }}</p>
           </div>
           <div class="account_usermenu">
-              <a href="{{ url_for('users.update_password', username = username) }}" class="btn btn-edit mb-2" role="button">Change Password</a>
-            </div>
+              <a href="{{ url_for('users.update_password', username = username) }}" class="btn btn-edit" role="button">Change Password</a>
+          </div>
       </div> 
     </div>
     <div class="col-md-9">
@@ -26,12 +27,21 @@
               {% for user_recipe in user_recipes %}
               <div class="col-sm-12 col-md-6 my-3">
                   <div class="card card_recipe">
+                      {% if user_recipe.image %}
                       <img src="{{ user_recipe.image }}" alt="Recipe Image" class="img-fluid" lazyload="on">
+                      {% else %}
+                      <img src="{{ url_for('static', filename='img/recipe-placeholder.jpg') }}" class="img-fluid" alt="Recipe" lazyload="on">
+                      {% endif %}
                       <div class="card-img-overlay">
                           <h6 class="card_title">{{ user_recipe.recipe_name }}</h6>   
                       </div>
                          <a href="{{ url_for('recipes.recipe', recipe_id=user_recipe._id) }}"></a>
                   </div>
+              </div>
+              {% else %}
+              <div class="col-sm-12 col-md-6">
+                <h3 class="heading-tertiary mb-5">Looks like you haven't created any recipes yet.</h3>
+                <a class="btn btn-edit" href="{{ url_for('recipes.add_recipe')}}" role="button">Add Recipe</a>
               </div>
               {% endfor %}
             </div>
