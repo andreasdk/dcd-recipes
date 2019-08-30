@@ -49,6 +49,19 @@
         </div>
     </div>
 
+    {% if 'logged_in' in session %} {% if user['_id'] == recipe['author'] %}
+    <div class="row m-auto">
+        <div class="col-6 m-auto">
+            <a href="{{ url_for('recipes.edit_recipe', recipe_id=recipe._id) }}" class="btn btn-edit" role="button">Edit Recipe</a>  
+        </div>
+        <div class="col-6 m-auto">
+            <a href="{{ url_for('recipes.delete_recipe', recipe_id=recipe._id) }}" class="btn btn-delete" role="button">Delete Recipe</a> 
+        </div>
+    </div>
+    {% endif %} {% endif %}
+
+    
+
     <div class="row py-5">
         <div class="col-sm-12 col-md-6 pb-5 text-center">
             <h2 class="heading-primary">Ingredients</h2>
@@ -71,6 +84,10 @@
             </ol>
         </div>
     </div>
+
+    
 </div>
+
+
 
 {% endblock %} {% block footer %} {% include 'includes/_footer.html' %} {% endblock %}
