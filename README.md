@@ -19,6 +19,7 @@
     - [**Features Left to Implement**](#features-left-to-implement)
 
 3. [**Technologies Used**](#technologies-used)
+    - [**Libraries**](#Libraries)
     - [**Front-End Technologies**](#front-end-technologies)
     - [**Back-End Technologies**](#back-end-technologies)
 
@@ -102,17 +103,90 @@ I used a charcoal color for the navbar and header, and then a mid green color (#
 
 ### Existing Features
 
-<img src="https://media.giphy.com/media/hv9fjYmyY3zMNdnf1l/giphy.gif" alt="Navbar Desktop" width="800">
+<img src="https://media.giphy.com/media/dBxUpnPh0icOHWI81v/giphy.gif" alt="Navbar Desktop" width="800">
 
 **Navbar**
 - The navbar is displayed on the homepage, recipes page, search page, single recipe page and the account page. In its logged out state, it displays links to the home page, the recipes page, the login page, and the register page. Each link has an icon to give a visual clue as to the linked page content. On desktop,
 the links have a hover effect which causes the background and text color to invert via a right side sliding animation. On smaller tablet and mobile screens, the navbar is accessed via a toggler and the nav links are centred.
 
-**Register An Account**
+<img src="https://i.ibb.co/YDGVMYJ/navbardefault.png" alt="Navbar Default Desktop" width="800">
+
+- Visitors who are not logged in, or who have no account see the following navbar links.
+        1. Home
+        2. Recipes
+        3. Login
+        4. Register 
+
+<img src="https://i.ibb.co/fNfj6Z2/navbarsignedin.png" alt="Navbar Signed In Desktop" width="800">
+
+- Logged in users see the following navbar links.
+        1. Home
+        2. Recipes
+        3. Add A Recipe
+        4. Account
+        5. Logout 
+        
+<img src="hhttps://media.giphy.com/media/VHwnNiRIzFC1Itd7ux/giphy.gif" alt="Successful User Registration" width="800">
+
+**Account Registration**
 - A user can register an account by creating a username and a password. The username must be unique and be between 2 and 20 characters long. The username input field has a red bottom border while unvalidated, which changes to the primary color (#57BA98) when validated. The same validation style applies to the password fields, which must match in order for a registration to be successful. If the username is not unique or the passwords do not match, the website will redirect to the register page, and a flash message appears to guide the user. This page does not have a navbar, but can be closed by clicking the close icon in the top right corner. This redirects to the homepage.
 
-**Login To An Account**
+<img src="https://media.giphy.com/media/ZXYNyebaOurWYNpjnH/giphy.gif" alt="Successful User Login" width="800">
+
+**Account Login**
 - A user can  log in to their account by inputting their username and password. The username input field has a red bottom border while unvalidated, which changes to the primary color (#57BA98) when validated. The same validation style applies to the password field. Validation in the login form means that both fields must be filled in. If the user inputs the wrong username and/or password, they are redirected back to the form. A flash message appears to give them feedback about why login was not successful. This page does not have a navbar, but can be closed by clicking the close icon in the top right corner. This redirects to the homepage.
 
+<img src="https://media.giphy.com/media/l2vVm0Xx1m65RiIuBo/giphy.gif" alt="Successful User Password Change" width="800">
+
 **Change Password**
-- A user can  change their password by inputting their current password, and then inputting and confirming their new password.The username input fields have the same validation style as the register and login forms. Validation in the password change form means that all fields must be filled in. This page does not have a navbar, but can be closed by clicking the close icon in the top right corner. This redirects to the user account page.
+- A user can  change their password by inputting their current password, and then inputting and confirming their new password.The username input fields have the same validation style as the register and login forms. Validation in the password change form means that all fields must be filled in. If the user inputs the wrong current pasword and/or the new passwords do not match, they are redirected back to the form. A flash message appears to give them feedback about why the form submission was not successful. This page does not have a navbar, but can be closed by clicking the close icon in the top right corner. This redirects to the user account page.
+
+<img src="https://media.giphy.com/media/StjNcaawUBAUmyDSPY/giphy.gif" alt="User Logout" width="800">
+
+**Account Logout**
+- When a user logs in, the login and registration links no longer appear on the navbar. Instead, the user sees links to add a recipe, to view their account page, and to log out. On clicking logout, the session is ended and the user is redirected to the homepage.
+
+**View All Recipes**
+- On the recipes page, recipes cards are display from oldest to most recent. There is pagination, with a limit of 8 recipes per page. There is also a search bar which returns a list of recipes depending on the searched keyword. There is also a message for the user if their search results in no recipes being found.
+
+
+##### back to [top](#table-of-contents)
+
+---
+
+## Technologies Used
+- [Git](https://git-scm.com/) Used for version control of project code.
+- [GitHub](https://github.com/) - Used to remotely store project code.
+- [VS Code](https://code.visualstudio.com/) - The IDE I used for developing this project.
+- [Imgbb](https://imgbb.com) to store all external images for this project.
+- [Giphy](https://giphy.com/create/gifmaker) For creating the gifs used in this README.md file.
+- [OBS](https://obsproject.com/) For recording screen captures of websites features for this README.md file.
+
+### Libraries
+- [Bootstrap 4.3.1](https://getbootstrap.com/) Used for its responsive design framework.
+- [JQuery 3.4.0](https://jquery.com) Used for simplified DOM manipulation.
+- [Google Fonts](https://fonts.google.com/) Used to import custom fonts.
+- [FontAwesome](https://fontawesome.com/) For the icons used through the Whisk Recipes website.
+
+### Front-End Technologies
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - Used to write markup text.
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3) - Used to creatwe custom styles
+
+
+### Back-End Technologies
+- **Python**    
+    - [Python 3.6.8](https://www.python.org/) - Used as the back-end programming language.
+    - [MongoDB Atlas](https://www.mongodb.com/) - The database used to store website backend data.
+    - [PyMongo 3.8.0](https://api.mongodb.com/python/current/) - Used for interacting with MongoDB database from Python.
+    - [WTForms 2.2.1](https://pypi.org/project/WTForms/) - I used WTForms to handle form rendering and validation.
+    - [Python dotenv](https://github.com/theskumar/python-dotenv) - Gets and sets values in the .env file.
+- **Flask**
+    - [Flask 1.1.1](http://flask.pocoo.org/) - To construct and render templates.
+    - [Werkzeug 0.15.5](https://werkzeug.palletsprojects.com/en/0.15.x/) - Used for generating and verifying password hashing.
+    - [Flask Blueprints](http://flask.pocoo.org/docs/1.0/blueprints/) - I used Blueprints to split the app into modules.
+    - [Jinja 2.10.1](http://jinja.pocoo.org/docs/2.10/) - To display back-end data in the front-end.
+- **Heroku**
+    - [Heroku](https://www.heroku.com) - This app is hosted via Heroku.
+
+
+##### back to [top](#table-of-contents)
