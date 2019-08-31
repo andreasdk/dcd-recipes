@@ -1,5 +1,7 @@
 # [Whisk Recipes](https://whisk-recipes.herokuapp.com/)
 
+<img src="https://i.ibb.co/bWW5sNd/home.png" alt="Whisk Home Page" width="800">
+
 ---
 
 ## Table of Contents
@@ -93,3 +95,24 @@ I used a charcoal color for the navbar and header, and then a mid green color (#
 
 ##### back to [top](#table-of-contents)
 
+
+---
+
+## Features
+
+### Existing Features
+
+<img src="https://media.giphy.com/media/hv9fjYmyY3zMNdnf1l/giphy.gif" alt="Navbar Desktop" width="800">
+
+**Navbar**
+- The navbar is displayed on the homepage, recipes page, search page, single recipe page and the account page. In its logged out state, it displays links to the home page, the recipes page, the login page, and the register page. Each link has an icon to give a visual clue as to the linked page content. On desktop,
+the links have a hover effect which causes the background and text color to invert via a right side sliding animation. On smaller tablet and mobile screens, the navbar is accessed via a toggler and the nav links are centred.
+
+**Register An Account**
+- A user can register an account by creating a username and a password. The username must be unique and be between 2 and 20 characters long. The username input field has a red bottom border while unvalidated, which changes to the primary color (#57BA98) when validated. The same validation style applies to the password fields, which must match in order for a registration to be successful. If the username is not unique or the passwords do not match, the website will redirect to the register page, and a flash message appears to guide the user. This page does not have a navbar, but can be closed by clicking the close icon in the top right corner. This redirects to the homepage.
+
+**Login To An Account**
+- A user can  log in to their account by inputting their username and password. The username input field has a red bottom border while unvalidated, which changes to the primary color (#57BA98) when validated. The same validation style applies to the password field. Validation in the login form means that both fields must be filled in. If the user inputs the wrong username and/or password, they are redirected back to the form. A flash message appears to give them feedback about why login was not successful. This page does not have a navbar, but can be closed by clicking the close icon in the top right corner. This redirects to the homepage.
+
+**Change Password**
+- A user can  change their password by inputting their current password, and then inputting and confirming their new password.The username input fields have the same validation style as the register and login forms. Validation in the password change form means that all fields must be filled in. This page does not have a navbar, but can be closed by clicking the close icon in the top right corner. This redirects to the user account page.
