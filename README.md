@@ -207,6 +207,9 @@ The website images (excluding the recipe images) were taken from the following s
 - **Register, Login, Change Password form bg-image** : [Unsplash](https://unsplash.com/photos/QnNqGoCnBg0)
 - **Mockup images used in README** : [techsini](https://techsini.com/multi-mockup/)
 
+The homepage header video came from:
+- **Panagat Making on Coverr** : [Coverr](https://coverr.co/videos/Pinangat%20Making)
+
 ### Code
 
 - **Navbar animation, user registration form styles, heading styles, utilities styles, search bar styles** [Jonas Schmedtman Advanced CSS & Sass](https://www.udemy.com/advanced-css-and-sass)
