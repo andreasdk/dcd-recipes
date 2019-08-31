@@ -46,7 +46,7 @@ This project is the assessment of the Python/Flask/MongoDB modules for the Full 
 
 ### User Stories
 
-"**_As a user, I want:_**"
+"**As a user, I want:**"
 - *to view the site* on my preferred device (mobile, tablet, desktop).
 - *to create my own profile*
 - *to add recipes to the website*
@@ -112,19 +112,19 @@ the links have a hover effect which causes the background and text color to inve
 <img src="https://i.ibb.co/YDGVMYJ/navbardefault.png" alt="Navbar Default Desktop" width="800">
 
 - Visitors who are not logged in, or who have no account see the following navbar links.
-        1. Home
-        2. Recipes
-        3. Login
-        4. Register 
+    1. Home
+    2. Recipes
+    3. Login
+    4. Register 
 
 <img src="https://i.ibb.co/fNfj6Z2/navbarsignedin.png" alt="Navbar Signed In Desktop" width="800">
 
 - Logged in users see the following navbar links.
-        1. Home
-        2. Recipes
-        3. Add A Recipe
-        4. Account
-        5. Logout 
+    1. Home
+    2. Recipes
+    3. Add A Recipe
+    4. Account
+    5. Logout 
         
 <img src="https://media.giphy.com/media/VHwnNiRIzFC1Itd7ux/giphy.gif" alt="Successful User Registration" width="800">
 
@@ -170,7 +170,7 @@ the links have a hover effect which causes the background and text color to inve
 
 ### Front-End Technologies
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - Used to write markup text.
-- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3) - Used to creatwe custom styles
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3) - Used to create custom styles.
 
 
 ### Back-End Technologies
@@ -187,6 +187,39 @@ the links have a hover effect which causes the background and text color to inve
     - [Jinja 2.10.1](http://jinja.pocoo.org/docs/2.10/) - To display back-end data in the front-end.
 - **Heroku**
     - [Heroku](https://www.heroku.com) - This app is hosted via Heroku.
+
+
+##### back to [top](#table-of-contents)
+
+
+## Credits
+
+### Content
+
+- [BBC Good Food](https://www.bbcgoodfood.com/) - All recipes added by me on the website, as well as recipe images come from this website.
+
+### Media
+
+The website images (excluding the recipe images) were taken from the following sources:
+
+- **Recipe Placeholder Image** : [Google Image Search](http://i0.wp.com/cdn11.bigcommerce.com/s-571px4/images/stencil/original/products/1559/4041/WD413_Chef_Face_and_Hat_Wall_Decal_Art_Kitchen_Decor_Red_Room_Pic__57934.1464377687.JPG?c\u003d2\u0026imbypass\u003don?strip=all)
+- **User Avatars** : [Iconfinder](https://www.iconfinder.com)
+- **Register, Login, Change Password form bg-image** : [Unsplash](https://unsplash.com/photos/QnNqGoCnBg0)
+- **Mockup images used in README** : [techsini](https://techsini.com/multi-mockup/)
+
+### Code
+
+- **Navbar animation, user registration form styles, heading styles, utilities styles, search bar styles** [Jonas Schmedtman Advanced CSS & Sass](https://www.udemy.com/advanced-css-and-sass)
+- **Flask Tutorials** - [Corey Schafer](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH)
+- **The Flask Mega-Tutorial** - [Miguel Grinberg](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
+- **Search Function** [johnnycistudent](https://github.com/johnnycistudent/recipe-app)
+
+### Acknowledgements
+
+- [Tim Nelson](https://github.com/TravelTimN)
+    - Fellow Code Institute student who helped me out a lot building routes.
+- Slack Users **Shane Muirhead, John_Lynch_Alumnus**
+    - Code Institute students who were very reactive on Slack to help out when I asked questions.
 
 
 ##### back to [top](#table-of-contents)
