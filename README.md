@@ -126,7 +126,7 @@ the links have a hover effect which causes the background and text color to inve
         4. Account
         5. Logout 
         
-<img src="hhttps://media.giphy.com/media/VHwnNiRIzFC1Itd7ux/giphy.gif" alt="Successful User Registration" width="800">
+<img src="https://media.giphy.com/media/VHwnNiRIzFC1Itd7ux/giphy.gif" alt="Successful User Registration" width="800">
 
 **Account Registration**
 - A user can register an account by creating a username and a password. The username must be unique and be between 2 and 20 characters long. The username input field has a red bottom border while unvalidated, which changes to the primary color (#57BA98) when validated. The same validation style applies to the password fields, which must match in order for a registration to be successful. If the username is not unique or the passwords do not match, the website will redirect to the register page, and a flash message appears to guide the user. This page does not have a navbar, but can be closed by clicking the close icon in the top right corner. This redirects to the homepage.
