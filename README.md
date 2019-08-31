@@ -67,7 +67,7 @@ This site was built using Bootstrap, as well as refactored designs I used in my 
     - I chose Bootstrap for its ease of use, its minimal use of classes compared to other front-end libraries, and its ability to be easily customized.
 - [jQuery 3.3.1](https://code.jquery.com/jquery/)
     - I am using the version of jQuery recommended with Bootstrap for features like the navbar.
-- [Flask 1.0.2](http://flask.pocoo.org/)
+- [Flask 1.1.1](http://flask.pocoo.org/)
     - I've used the Python framework to create routes, functions and templates for the back-end of the website.
 
 #### Color Scheme
@@ -191,6 +191,89 @@ the links have a hover effect which causes the background and text color to inve
 
 ##### back to [top](#table-of-contents)
 
+## Deployment
+
+### Local Deployment
+
+To run this project locally, you need the following:
+- An IDE. I used [Visual Studio Code](https://code.visualstudio.com/) but you are free to use one of your choice.
+
+The following **must be installed** on your machine:
+- [PIP](https://pip.pypa.io/en/stable/installing/)
+- [Python 3](https://www.python.org/downloads/)
+- [Git](https://git-scm.com/)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) to create your own database.
+
+### Instructions
+- Save a copy of this GitHub repository by clicking the 'Clone or download' button at the top of the page, then on 'Download ZIP'. Extract the ZIP file to the folder you will be working in. Alternatively, if you have Git installed locally, you can clone the repository with the following command:
+    - `git clone https://github.com/andreasdk/dcd-recipes`.
+- Open a terminal window and change directory (cd) to the directory you extracted the files in.
+- Create a **.env** file with the connection to your MongoDB database, and a secret key. It should look something like this:
+```
+MONGO_URI='Your Mongo URI Details'
+SECRET_KEY='Your secret key' 
+```  
+- Create a **.flaskenv** file, specifying the following:
+    - `FLASK_APP=run.py`
+    - `FLASK_ENV=development`
+- Install all required modules with the command:
+    - `pip -r requirements.txt`
+- Create a new database on MongoDB and name it whisk. In the database, create the following two collections:
+
+**USER**
+```
+_id: <ObjectId>
+username: <String>
+pass: <String>
+user_avatar: <String>
+user_recipes: <Array>
+```
+**RECIPES**
+```
+_id: <ObjectId>
+recipe_name: <String>
+description: <String>
+meal_type: <String>
+diet_type: <String>
+prep_time: <String>
+time: <String>
+image: <String>
+ingredient_name: <Array>
+directions: <Array>
+author: <ObjectId>
+```
+
+- You can now run the application by running the following command:
+    - `flask run`
+    - The website will run now on *localhost* `http://127.0.0.1:5000`
+
+
+### Remote Deployment
+
+The app can be deployed via [Heroku](https://www.heroku.com/). To deploy, you need to do the following:
+
+- In the terminal, create a `requirements.txt` file using the command `pip freeze > requirements.txt`.
+- In the terminal, create a `Procfile` by running the `echo web: python app.py > Procfile` command.
+- Push these files to your GitHub repository.
+- Create a new app on [Heroku dashboard](https://dashboard.heroku.com/apps), give it a name and set the region to whichever is closest to you.
+- Link the Heroku app to your GitHub repository.
+- Set the config vars as follows:
+
+| Key | Value |
+ --- | ---
+DEBUG | FALSE
+IP | 0.0.0.0
+MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority`
+PORT | 5000
+SECRET_KEY | `<your_secret_key>`
+
+The MONGO_URI and SECRET_KEY should match the ones in your **.env** file.
+
+- Click 'Deploy' in the Heroku Dashboard, and select 'enable automatic deployment'.
+
+- It should now be possible to launch the app via Heroku.
+
+##### back to [top](#table-of-contents)
 
 ## Credits
 
