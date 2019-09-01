@@ -138,14 +138,19 @@ def edit_recipe(recipe_id):
 @recipes.route('/delete/<recipe_id>')
 def delete_recipe(recipe_id):
 
-    user = coll_users.find_one({'username': session['username']})  # Get the user
+    # Get the user
 
+    user = coll_users.find_one({'username': session['username']})
+
+    # Get the recipe
     selected_recipe = \
-        coll_recipes.find_one({'_id': ObjectId(recipe_id)})  # Get the recipe
-    
+        coll_recipes.find_one({'_id': ObjectId(recipe_id)})
+      
+    # Get the author
     author = coll_users.find_one({'username': session['username'
                                  ]})['_id']
-    
+
+    # If current user id matches the author id, recipe can be deleted
     if user['_id'] == selected_recipe['author']:
         recipe = coll_recipes
         recipe.delete_one({
@@ -153,7 +158,7 @@ def delete_recipe(recipe_id):
         })
         flash('Recipe deleted', 'success')
         return redirect(url_for('main.home'))
-
+    # else user gets a flash message and redirect back to the recipe page
     flash("Sorry you can only delete your own recipes!")
     return redirect(url_for('recipes.recipe', recipe_id=recipe_id))
 
@@ -161,27 +166,39 @@ def delete_recipe(recipe_id):
 @recipes.route('/search')
 def search():
 
-    
     #  Results per page
+
     per_page = 8
     current_page = int(request.args.get('current_page', 1))
+
     #  Input term for search query
+
     search_query = request.args.get('search_query')
-    #  Results for search sorted by ID
-    results = coll_recipes.find({'$text': {'$search': str(search_query)}}, {"score": {"$meta": 'textScore'}}).sort('_id', pymongo.ASCENDING).skip((current_page -1)*per_page).limit(per_page)
+
+    #  Search results sorted by ID
+
+    results = \
+        coll_recipes.find({'$text': {'$search': str(search_query)}},
+                          {'score': {'$meta': 'textScore'}}).sort('_id'
+            , pymongo.ASCENDING).skip((current_page - 1)
+            * per_page).limit(per_page)
+
     # Pagination
-    results_count = coll_recipes.find({'$text': {'$search': str(search_query)}}).count()
-    results_pages = range(1, int(math.ceil(results_count / per_page)) + 1)
-    total_page_no = int(math.ceil(results_count/per_page))
-    
-    
-    return render_template('search.html', 
-                        per_page = per_page,
-                        current_page=current_page, 
-                        results_count=results_count,
-                        search_query=search_query,
-                        results=results,
-                        results_pages=results_pages,
-                        total_page_no=total_page_no,
-                        )    
-            
+
+    results_count = \
+        coll_recipes.find({'$text': {'$search': str(search_query)}}).count()
+    results_pages = range(1, int(math.ceil(results_count / per_page))
+                          + 1)
+    total_pages = int(math.ceil(results_count / per_page))
+
+    return render_template(
+        'search.html',
+        per_page=per_page,
+        current_page=current_page,
+        results_count=results_count,
+        search_query=search_query,
+        results=results,
+        results_pages=results_pages,
+        total_pages=total_pages,
+        )
+
