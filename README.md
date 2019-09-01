@@ -279,8 +279,8 @@ To test the search function, I searched with keywords that should have returned 
 
 **JavaScript**
 -[Esprima](https://esprima.org/demo/validate.html)
-    -"Code is syntactically valid."
-    -There is only one line of JS in this app, for scrolling to the search results in the search pagination
+ -"Code is syntactically valid."
+ -There is only one line of JS in this app, for scrolling to the search results in the search pagination
 
 ## Deployment
 
