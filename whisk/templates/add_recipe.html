@@ -28,7 +28,7 @@
                 <div class="col-md-6 col-12">
                     <div class="form-group">
                         <label for="meal_type">
-                            Meal Type
+                            Meal Type (select one )
                         </label>
                         {{ form.meal_type(class="form-control form-input custom-select", id="meal_type") }}
                     </div>
@@ -37,7 +37,7 @@
                 <div class="col-md-6 col-12">
                     <div class="form-group">
                         <label for="diet_type">
-                            Diet Type
+                            Diet Type (optional)
                         </label>
                         {{ form.diet_type(class="form-control form-input custom-select", id="diet_type", placeholder="Diet Type") }}
                     </div>
@@ -48,7 +48,7 @@
                         <label for="ingredient_name">
                             Ingredients
                         </label>
-                        {{ form.ingredient_name(class="form-control form-input ", id="ingredient_name", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="2 egg whites, 100g caster sugar, 160g desiccated coconut, 1 tsp grated lime zest, 1 tbsp lime juice") }}
+                        {{ form.ingredient_name(class="form-control form-input ", id="ingredient_name", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Please add each ingredient on a new line") }}
                     </div>
                 </div>
                 <!-- prep time in minutes -->
@@ -73,7 +73,7 @@
                 <div class="col-md-6 col-12">
                     <div class="form-group">
                         <label for="image">
-                            Recipe Image
+                            Recipe Image (optional)
                         </label>
                         {{ form.image(class="form-control form-input", id="image", autocomplete="off", placeholder="Insert URL to image") }}
                     </div>
@@ -84,7 +84,7 @@
                         <label for="directions">
                             Recipe Directions
                         </label>
-                        {{ form.directions(class="form-control form-input u-margin-bottom-medium ", id="directions", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Preheat the oven to 180C/160C Fan/Gas 4. Mix the egg whites, sugar, coconut, lime zest and juice in a bowl.") }}
+                        {{ form.directions(class="form-control form-input u-margin-bottom-medium ", id="directions", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Please add each direction on a new line.") }}
                     </div>
                 </div>
                 <!-- submit button -->
