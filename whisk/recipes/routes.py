@@ -21,14 +21,25 @@ recipes = Blueprint('recipes', __name__)
 @recipes.route('/add_recipe', methods=['GET', 'POST'])
 def add_recipe():
 
+    """
+    Add recipe function that calls the RecipeForm class from recipes/form.py
+    Only logged in users can create recipes. Assigns an author to each recipe.
+    """
+    # Checks if user is logged in
+    if 'logged_in' not in session:  
+        flash('Sorry, you must be logged in to create a recipe.')
+        return redirect(url_for('main.home'))
+    # Form variable set as RecipeForm from recipes/form.py
     form = RecipeForm(request.form)
+    # Gets user and author details
     user = coll_users.find_one({'username': session['username'
-                               ].lower()})
+                               ].lower()})                       
     author = coll_users.find_one({"username": session["username"]})["_id"]
 
     
 
     if request.method == 'GET':
+        # Renders template and form
         return render_template('add_recipe.html', form=form,
                                title='Add Recipe')
     
@@ -37,6 +48,7 @@ def add_recipe():
     
 
     if request.method == 'POST':
+        # Creates new recipe with form data
         recipe = coll_recipes.insert_one({
             'recipe_name': request.form['recipe_name'],
             'description': request.form['description'],
@@ -49,6 +61,8 @@ def add_recipe():
             'directions': directions,
             'author': author,
             })
+        # User is found with author id, user recipes
+        # updated with recipe id
         coll_users.update_one({'_id': ObjectId(author)},
                               {'$push': {'user_recipes': recipe.inserted_id}})
         flash('Recipe Added!')
@@ -57,6 +71,11 @@ def add_recipe():
 # ----- READ ALL RECIPES ----- #
 @recipes.route('/recipes')
 def all_recipes():
+
+    """
+    Displays all recipes from database. Pagination
+    sets limit of displayed recipes to 8 per page.
+    """
 
     per_page = 8
     current_page = int(request.args.get('current_page', 1))
@@ -71,10 +90,15 @@ def all_recipes():
 @recipes.route('/recipes/<recipe_id>', methods=['GET', 'POST'])
 def recipe(recipe_id):
 
-    
+    """
+    Read a single recipe from collection. If logged in user id matches
+    recipe author, user has option to edit or delete recipe.
+    """
 
+    # Finds recipe in collection based on id
     single_recipe = coll_recipes.find_one({"_id": ObjectId(recipe_id)})
 
+    # If logged in user set to session username, author set to session user id
     if 'logged_in' in session:
         user = coll_users.find_one({'username': session['username']})
         author = coll_users.find_one({'username': session['username'
@@ -91,24 +115,29 @@ def recipe(recipe_id):
 @recipes.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
 
-    user = coll_users.find_one({'username': session['username']})  # Get the user
-
+    """
+    Edit recipe function that calls the RecipeForm class from recipes/form.py
+    Only recipe author can edit a recipe.
+    """
+    # Get the user
+    user = coll_users.find_one({'username': session['username']})  
+    # Get the recipe
     selected_recipe = \
-        coll_recipes.find_one({'_id': ObjectId(recipe_id)})  # Get the recipe
-
+        coll_recipes.find_one({'_id': ObjectId(recipe_id)})  
+    # Get the author
     author = coll_users.find_one({'username': session['username'
                                  ]})['_id']
-
-    form = RecipeForm()  # Form
-
+    # Defines the form as the RecipeForm class from recipes/form.py 
+    form = RecipeForm() 
+    # If user id matched author of recipe
     if user['_id'] == selected_recipe['author']:
-
+        # Recipe form is population with the recipe data
         form = RecipeForm(data=selected_recipe)
-
+        # If form correctly validates
         if form.validate_on_submit():
 
             recipe = coll_recipes
-
+            # Recipe is updated according to data in form
             recipe.update_one({'_id': ObjectId(recipe_id)}, {'$set': {
                 'recipe_name': request.form['recipe_name'],
                 'description': request.form['description'],
@@ -138,15 +167,19 @@ def edit_recipe(recipe_id):
 @recipes.route('/delete/<recipe_id>')
 def delete_recipe(recipe_id):
 
-    # Get the user
+    """
+    Delete recipe function. Only recipe author can delete recipe.
+    """
+
+    # Gets the user
 
     user = coll_users.find_one({'username': session['username']})
 
-    # Get the recipe
+    # Gets the recipe
     selected_recipe = \
         coll_recipes.find_one({'_id': ObjectId(recipe_id)})
       
-    # Get the author
+    # Gets the author
     author = coll_users.find_one({'username': session['username'
                                  ]})['_id']
 
@@ -166,17 +199,20 @@ def delete_recipe(recipe_id):
 @recipes.route('/search')
 def search():
 
-    #  Results per page
+    """
+    Allows a user to search for recipes. All fields in recipe are searchable
+    due to Wildcard Index:
+    coll_recipes.create_index([("$**", pymongo.TEXT)])
+    """
 
+    #  Results per page
     per_page = 8
     current_page = int(request.args.get('current_page', 1))
 
     #  Input term for search query
-
     search_query = request.args.get('search_query')
 
     #  Search results sorted by ID
-
     results = \
         coll_recipes.find({'$text': {'$search': str(search_query)}},
                           {'score': {'$meta': 'textScore'}}).sort('_id'
@@ -184,7 +220,6 @@ def search():
             * per_page).limit(per_page)
 
     # Pagination
-
     results_count = \
         coll_recipes.find({'$text': {'$search': str(search_query)}}).count()
     results_pages = range(1, int(math.ceil(results_count / per_page))
