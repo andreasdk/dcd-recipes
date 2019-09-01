@@ -20,25 +20,20 @@
 </header>
 
 <section class="container-fluid pt-5">
-    <div class="u-center-text u-margin-bottom-large u-padding-top">
-        <h2 class="heading-secondary">Our Latest Recipes</h2>
+    <div class="u-center-text u-margin-bottom-medium u-padding-top">
+        <h2 class="heading-secondary">Discover Our Recipes</h2>
     </div>
     <div class="row u-margin-bottom-large">
-        {% for recipe in recipes %}
+        {% for recipe in random_recipes %}
             {% include "includes/_cards.html" %}
         {% endfor %}
     </div>
+    <div class="recipe-btn u-margin-bottom-medium u-padding-top text-center">
+        <a href="{{ url_for('recipes.all_recipes')}}" class="btn btn-primary">All Our Recipes Here</a>
+    </div>
+    
 </section>
 
-<nav aria-label="pagination">
-    <ul class="pagination pagination-lg justify-content-center">
-        {% for page in pages %} {% if page== current_page %}
-        <li class="page-item active"><a class="page-link">{{ page }}</a></li>
-        {% else %}
-        <li class="page-item"><a class="page-link" href="{{ url_for('main.home', current_page=page) }}">{{ page }}</a></li>
-        {% endif %} {% endfor %}
-    </ul>
-</nav>
 {% endblock %}
 
 {% block footer %} {% include 'includes/_footer.html' %} {% endblock %}
