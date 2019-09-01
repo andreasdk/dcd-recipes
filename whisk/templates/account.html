@@ -4,21 +4,26 @@
 {% if session.username %}
 
 <div class="container">
+  <!--User account sidebar-->
   <div class="row user_account">
     <div class="col-md-3">
       <div class="account_sidebar">
+        <!--User Avatar-->
           <div class="account_avatar">
               <img class="img-responsive" src="{{ url_for('static', filename='img/avatars/'+user_avatar+'.png') }}">
           </div>
+          <!--Username and recipe count-->
           <div class="account_username">
               <h2 class="heading-primary">{{ username }}</h2>
               <p class="paragraph">Recipes: {{ count }}</p>
           </div>
+          <!--Update Account Password-->
           <div class="account_usermenu">
               <a href="{{ url_for('users.update_password', username = username) }}" class="btn btn-edit" role="button">Change Password</a>
           </div>
       </div> 
     </div>
+    <!--User recipe card if exists/ else add recipe button-->
     <div class="col-md-9">
       <div class="account_content">
         <h2 class="heading-primary">{{ username }}'s Recipes</h2>
