@@ -214,7 +214,7 @@ def update_password(username):
             # User entry in collection is updated with new password
 
             coll_users.update_one({'username': username},
-                                  {'$set': {'pass': generate_password_hash(request.form.get'new_password'
+                                  {'$set': {'pass': generate_password_hash(request.form.get('new_password'
                                   ))}})
             return redirect(url_for('users.account', username=username))
         else:
