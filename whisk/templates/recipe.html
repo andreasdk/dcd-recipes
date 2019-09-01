@@ -2,15 +2,19 @@
 <div class="container px-0 recipe_container">
     <div class="row align-items-start py-5">
         <div class="col-md-6 text-center">
+            <!--Recipe Name-->
             <h1 class="heading-primary">{{ recipe.recipe_name }}</h1>
+            <!--Recipe Description-->
             <p class="paragraph px-3">{{ recipe.description }}</p>
 
             <div class="row pt-5">
+                <!--Meal Type-->
                 <div class="col-6">
                     <i class="fas fa-utensil-spoon recipe_icon"></i>
                     <h4>Meal Type</h4>
                     <p class="paragraph">{{ recipe.meal_type }}</p>
                 </div>
+                <!--Diet Type-->
                 <div class="col-6">
                     <i class="fas fa-check-circle recipe_icon"></i>
                     <h4>Diet Type</h4>
@@ -23,13 +27,15 @@
                     {% endif %}
                 </div>
             </div>
-
+            
             <div class="row pt-3">
+                <!--Prep Time-->
                 <div class="col-6">
                     <i class="fas fa-stopwatch recipe_icon"></i>
                     <h4>Prep Time</h4>
                     <p class="paragraph">{{ recipe.prep_time }} Min</p>
                 </div>
+                <!--Cooking Time-->
                 <div class="col-6">
                     <i class="fas fa-hourglass-start recipe_icon"></i>
                     <h4>Cooking Time</h4>
@@ -51,18 +57,19 @@
 
     {% if 'logged_in' in session %} {% if user['_id'] == recipe['author'] %}
     <div class="row m-auto">
+        <!--Edit Button-->
         <div class="col-6 m-auto">
             <a href="{{ url_for('recipes.edit_recipe', recipe_id=recipe._id) }}" class="btn btn-edit" role="button">Edit Recipe</a>  
         </div>
+        <!--Delete Button-->
         <div class="col-6 m-auto">
             <a href="{{ url_for('recipes.delete_recipe', recipe_id=recipe._id) }}" class="btn btn-delete" role="button">Delete Recipe</a> 
         </div>
     </div>
     {% endif %} {% endif %}
 
-    
-
     <div class="row py-5">
+        <!--Ingredients List-->
         <div class="col-sm-12 col-md-6 pb-5 text-center">
             <h2 class="heading-primary">Ingredients</h2>
             <ul class="recipe_list recipe-ul-list px-3">
@@ -73,6 +80,7 @@
                 {% endfor %}
             </ul>
         </div>
+        <!--Recipe Directions List-->
         <div class="col-sm-12 col-md-6">
             <h2 class="heading-primary text-center">Directions</h2>
             <ol class="recipe_list px-5">
@@ -83,11 +91,7 @@
                 {% endfor %}
             </ol>
         </div>
-    </div>
-
-    
+    </div>   
 </div>
-
-
 
 {% endblock %} {% block footer %} {% include 'includes/_footer.html' %} {% endblock %}
