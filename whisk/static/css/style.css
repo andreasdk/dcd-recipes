@@ -98,6 +98,7 @@ body {
 
 .heading-secondary {
   background-image: linear-gradient(to right, var(--primary-color-light), var(--primary-color-dark));
+  background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   font-size: 3.5rem;
@@ -574,6 +575,7 @@ label {
   z-index: 1;
   background-color: var(--grey-color-dark-3);
   padding: .5rem;
+  cursor: pointer;
 }
 
 /**Single Recipe Page**/
