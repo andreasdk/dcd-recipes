@@ -1,0 +1,18 @@
+{% extends 'layout.html' %} 
+{% block nav %} {% include 'includes/_navbar.html' %} {% endblock %}
+{% block content %}
+
+<!--403 Error-->
+<header class="error-container">
+	<div class="text-box">
+		<h1 class="heading-primary">
+			<span class="heading-error-main">403 Error</span>
+			<span class="heading-error-sub">Access Forbidden</span>
+		</h1>
+		<a href="{{ url_for('main.home')}}" class="btn btn-primary m-auto">Back to homepage</a>
+	</div>	
+</header>
+
+{% endblock %}
+
+{% block footer %} {% include 'includes/_footer.html' %} {% endblock %}
