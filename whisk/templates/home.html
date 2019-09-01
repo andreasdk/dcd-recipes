@@ -23,15 +23,16 @@
     <div class="u-center-text u-margin-bottom-medium u-padding-top">
         <h2 class="heading-secondary">Discover Our Recipes</h2>
     </div>
+    <!--Random recipe cards-->
     <div class="row u-margin-bottom-large">
         {% for recipe in random_recipes %}
             {% include "includes/_cards.html" %}
         {% endfor %}
     </div>
+    <!--Link to recipes page-->
     <div class="recipe-btn u-margin-bottom-medium u-padding-top text-center">
         <a href="{{ url_for('recipes.all_recipes')}}" class="btn btn-primary">All Our Recipes Here</a>
-    </div>
-    
+    </div>   
 </section>
 
 {% endblock %}
