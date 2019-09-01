@@ -19,8 +19,10 @@ def create_app(config_class=Config):
     from whisk.main.routes import main
     from whisk.recipes.routes import recipes
     from whisk.users.routes import users
+    from whisk.errors.handlers import errors
     app.register_blueprint(main)
     app.register_blueprint(recipes)
     app.register_blueprint(users)
+    app.register_blueprint(errors)
 
     return app
