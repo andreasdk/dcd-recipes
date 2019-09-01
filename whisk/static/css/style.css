@@ -132,6 +132,22 @@ body {
   text-transform: uppercase;
 }
 
+.heading-error-main {
+  color: var(--grey-color-dark-3);
+  display: block;
+  font-size: 6rem;
+  font-weight: 500;
+  letter-spacing: 1.25rem;
+  margin-left:.25rem;
+}
+
+.heading-error-sub {
+  color: var(--grey-color-dark-3);
+  display: block;
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: 1.45rem;
+}
 
 /*Utility Classes*/
 
@@ -548,14 +564,11 @@ label {
   top: 0;
 }
 
-
-
 .card_title {
   bottom: 0;
   color: var(--grey-color-light-1);
   font-size:2rem;
   font-weight: 800;
-  letter-spacing: -0.4px;
   margin-bottom: 1rem;
   position: absolute;
   z-index: 1;
@@ -570,6 +583,13 @@ label {
 
 .recipe-ul-list {
   list-style-type: none;
+}
+
+.error-container {
+  background-image: url(../img/errors/error.png);
+  background-position: center center;
+  background-size: cover;
+  height: 95vh; 
 }
 
 /**Footer**/
