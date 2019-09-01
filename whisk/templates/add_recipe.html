@@ -1,4 +1,5 @@
-{% extends 'layout.html' %} {% block content %}
+{% extends 'layout.html' %} 
+{% block content %}
 <main class="recipe-form">
     <a href="{{ url_for('users.account', username=session.username) }}" class="close close-icon" aria-label="Close"><span aria-hidden="true">&times;</span></a>
     <div class="container u-padding-top-lg">
@@ -87,7 +88,7 @@
                         {{ form.directions(class="form-control form-input u-margin-bottom-medium ", id="directions", autocomplete="off", pattern="^[\w '.-]{5,50}$", placeholder="Please add each direction on a new line.") }}
                     </div>
                 </div>
-                <!-- submit button -->
+                <!--Submit Button-->
                 <div class="form-group m-auto">
                     {{ form.submit(class="btn btn-white u-margin-bottom-medium u-padding-top") }}
                 </div>
