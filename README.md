@@ -192,6 +192,7 @@ Due to time constraints, there are some additional features I wasn't able to imp
 - [Imgbb](https://imgbb.com) to store all external images for this project.
 - [Giphy](https://giphy.com/create/gifmaker) For creating the gifs used in this README.md file.
 - [OBS](https://obsproject.com/) For recording screen captures of websites features for this README.md file.
+- [Convertio](https://convertio.co/mp4-webm/) Used to convert the homepage header video to webm format.
 
 ### Libraries
 - [Bootstrap 4.3.1](https://getbootstrap.com/) Used for its responsive design framework.
@@ -221,6 +222,65 @@ Due to time constraints, there are some additional features I wasn't able to imp
 
 
 ##### back to [top](#table-of-contents)
+
+---
+
+## Testing
+
+I manually tested the website with debugger.
+```python
+debug=True
+```
+Whenever the app crashed, debugger displayed an error message that made it clear what was causing the error. I was able to resolve issues by going back to the routes and templates and examining the relevant code.
+
+**User Registration**
+I created my own account and tested website features with it. I can log in, update my password, add, edit, and delete my own recipes. I also made test accounts to see if it was possible to delete or edit another user's recipes from another account.
+
+**Add A Recipe**
+I made dummy recipes to test the create recipe function. I tested submitting a recipe with no image to see if the placeholder image would appear, and it does. I attempted to submit the form without some required fields, but it wasn't possible.
+
+**Update A Recipe**
+I tested a number of recipes to make sure the edit recipe function was working correctly. When the form is successfully validated, the recipe updates with the new data.
+
+**Delete A Recipe**
+I tested the delete function on dummy recipes, and it removes the selected recipe from the database.
+
+**Read A Recipe**
+Individual recipes were tested by clicking on the recipe cards. The recipe data is successfully displayed on screen. The ingredient and directions arrays are successfully iterated over and displayed as lists.
+
+**Pagination**
+- Default Pagination
+    - Recipe card per page successfully limited to 8
+    - Current page link is disabled
+    - Correct number of page buttons appear
+    - Each page buttons links to the correct page
+    - Each page displays correct page URL
+    - When more recipes are added to DB, more page numbers are subsequently added to pagination
+
+- Search Pagination
+    - Recipe cards per page successfully limited to 8
+    - No pagination is results == 0
+    - 1 paginated page if result = 1
+    - 1 paginated page if results < 8
+    - Correct number of pagination buttons if results > 8
+
+
+**Search**
+To test the search function, I searched with keywords that should have returned results as well as searching with irrelevant keywords. I also tested the pagination to make sure the search keywords carried over to the selected page, and that the window automatically scrolled to the search results on the selected page.
+
+### Validators
+
+
+**HTML**
+- [W3C HTML Validator](https://validator.w3.org) - WC3 does not understand the Jinja templating language, so throws up errors for that. It also does not currently understand loading="lazy" as this is a new Chrome feature since version 76. Other than the Jinja errors, the code is validated.
+
+
+**CSS**
+
+**JavaScript**
+-[Esprima](https://esprima.org/demo/validate.html)
+    -"Code is syntactically valid."
+    -There is only one line of JS in this app, for scrolling to the search results in the search pagination
 
 ## Deployment
 
@@ -322,7 +382,7 @@ The website images (excluding the recipe images) were taken from the following s
 - **Mockup images used in README** : [techsini](https://techsini.com/multi-mockup/)
 
 The homepage header video came from:
-- **Panagat Making on Coverr** : [Coverr](https://coverr.co/videos/Pinangat%20Making)
+- **Coverr** : [Coverr](https://coverr.co/videos/Pinangat%20Making)
 
 ### Code
 
