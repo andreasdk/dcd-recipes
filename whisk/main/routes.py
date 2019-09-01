@@ -18,7 +18,7 @@ main = Blueprint('main', __name__)
 @main.route("/home")
 def home():
 
-     """
+    """
     Homepage, 8 random recipes from collection are displayed 
     as cards - each linking to individual recipe
     """
