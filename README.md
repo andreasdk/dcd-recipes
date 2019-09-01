@@ -146,9 +146,40 @@ the links have a hover effect which causes the background and text color to inve
 **Account Logout**
 - When a user logs in, the login and registration links no longer appear on the navbar. Instead, the user sees links to add a recipe, to view their account page, and to log out. On clicking logout, the session is ended and the user is redirected to the homepage.
 
-**View All Recipes**
-- On the recipes page, recipes cards are display from oldest to most recent. There is pagination, with a limit of 8 recipes per page. There is also a search bar which returns a list of recipes depending on the searched keyword. There is also a message for the user if their search results in no recipes being found.
+<img src="https://media.giphy.com/media/kILsAv77Z7IueoCIiJ/giphy.gif" alt="View All Recipes" width="800">
 
+**View All Recipes**
+- On the recipes page, recipes cards are display from oldest to most recent. There is pagination, with a limit of 8 recipes per page. There is also a search bar which returns a list of recipes depending on the searched keyword. There is also a message for the user if their search results in no recipes being found. A user can click on a recipe card to be directed to the individual recipe page.
+
+<img src="https://media.giphy.com/media/WSqmi1HcIzzBljep18/giphy.gif" alt="View A Single Recipe" width="800">
+
+**View A Single Recipe**
+- A user can click on a recipe card from the homepage, the recipes page, and the search page to access a single recipe. A recipe display the recipe name, meal type, diet type if entered, prep and cooking time, recipe image, ingredients and directions.
+
+<img src="https://media.giphy.com/media/RIeof95NXLp0kW2qMO/giphy.gif" alt="View A Single Recipe" width="800">
+
+**Search For Recipes**
+- On the recipes page, a user can search the recipes collection by entering a keyword. They are then directed to the search page, with the results of their search. This page has pagination with a maximum of 8 results per page. The page automatically scrolls to the search results section.
+
+**Create A Recipe**
+- A logged in user is able to create a recipe by clicking on the 'Add Recipe' link in the navbar. They are then invited to fill in a recipe form with the relevant recipe data.
+
+**Update A Recipe**
+- A logged in user who is also the author of a given recipe is able to update that recipe by clicking on the 'Update Recipe' button on the recipe page. Only the logged in author can see this button. They are then invited to edit the recipe via the recipe form, pre-filled with the relevant recipe data.
+
+**Delete A Recipe**
+- A logged in user who is also the author of a given recipe is able to delete that recipe by clicking on the 'Delete Recipe' button on the recipe page. Only the logged in author can see this button. Clicking this button removes the recipe from the database. Users is redirected to the homepage upon deletion of a recipe.
+
+
+### Features Left to Implement
+
+Due to time constraints, there are some additional features I wasn't able to implement.
+
+**Search From Select**
+- Currently a user can search by inputting keywords to a search bar. I would also like to implement searching by choosing an option from a select element. These could be based on the meal-type and diet-type select fields.
+
+**Delete Account**
+- I would like for a user to be able to delete their account and thus remove all their recipes from the database.
 
 ##### back to [top](#table-of-contents)
 
@@ -217,7 +248,7 @@ SECRET_KEY='Your secret key'
     - `FLASK_APP=run.py`
     - `FLASK_ENV=development`
 - Install all required modules with the command:
-    - `pip -r requirements.txt`
+    - `sudo -H pip3 -r requirements.txt`
 - Create a new database on MongoDB and name it whisk. In the database, create the following two collections:
 
 **USER**
