@@ -5,39 +5,47 @@
     <a href=" {{ url_for('main.home') }}"class="close close-icon" aria-label="Close"><span aria-hidden="true">&times;</span></a>
     <div class="reglog">
         <div class="reglog__form">
-                <h1 class="heading-primary">Login</h1>
-                <form method="POST" action="">
-                        {{ form.hidden_tag() }}
-                        {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-                        <p class="flash-message" role="alert">
-                                {{ message }}
-                        </p>
+            <h1 class="heading-primary">Login</h1>
+            <!--Login Form-->
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <!--Flash Messages-->
+                {% with messages = get_flashed_messages() %} {% if messages %}
+                {% for message in messages %}
+                <p class="flash-message" role="alert">
+                    {{ message }}
+                </p>
                 {% endfor %} {% endif %} {% endwith %}
-                    <div class="form__group">
-                            {% if form.username.errors %}
-                            {{ form.username(class="form-control form__input is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.username.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                        {% else %}
+                <!--Username Input-->
+                <div class="form__group">
+                    {% if form.username.errors %}{{ form.username(class="form-control form__input is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
                         {{ form.username(autofocus=true, class="form__input", required=true, placeholder="Enter username") }}
-                        {% endif %}
+                    {% endif %}
+                </div>
+                <!--Password Input-->
+                <div class="form__group">
+                    {% if form.password.errors %} 
+                        {{ form.password(class="form-control form__input is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                        <span>{{ error }}</span> {% endfor %}
                     </div>
-                    <div class="form__group">
-                            {% if form.password.errors %} {{ form.password(class="form-control form__input is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.password.errors %}
-                                <span>{{ error }}</span> {% endfor %}
-                            </div>
-                            {% else %} {{ form.password(required=true, class="form__input", placeholder="Enter password") }} {% endif %}
-                        </div>
-                    <div class="py-4">Not registered? Sign up <a href="{{ url_for('users.register') }}">here.</a></div>
-                    <div class="form__group">
-                            {{ form.submit(class="btn btn-primary") }}
-                    </div>
-               </form>
+                    {% else %} 
+                        {{ form.password(required=true, class="form__input", placeholder="Enter password") }} 
+                    {% endif %}
+                </div>
+                <div class="py-4">Not registered? Sign up <a href="{{ url_for('users.register') }}">here.</a></div>
+                <!--Submit Button-->
+                <div class="form__group">
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
         </div>
     </div>
 </main>

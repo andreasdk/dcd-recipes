@@ -15,58 +15,59 @@
         </div>
         
         <div id="search-results">
-                <!-- Search Results Count -->
-        <!-- Zero Results -->
-        {% if total_results == 0 %}
-        <h3 class="heading-tertiary pt-5">Sorry no results found</h3>
+            <!-- Search Results Count -->
+            <!-- Zero Results -->
+            {% if total_results == 0 %}
+            <h3 class="heading-tertiary pt-5">Sorry no results found</h3>
 
-        <!-- 1 Result Found -->
-        {% elif results_count==1 %}
-        <h3 class="heading-tertiary pt-5">Your search for "
-            <span>{{ search_query }}</span>" produced 
-            <span>1</span> search result
-        </h3>
+            <!-- 1 Result Found -->
+            {% elif results_count==1 %}
+            <h3 class="heading-tertiary pt-5">Your search for "
+                <span>{{ search_query }}</span>" produced 
+                <span>1</span> search result
+            </h3>
 
-        <!-- Greater Than 1 Result Found -->
-        {% else %}
-        <h3 class="heading-tertiary pt-5">Your search for "
-            <span>{{ search_query }}</span>" produced 
-            <span>{{ results_count }}</span> search results
-        </h3>
-        {% endif %}
+            <!-- Greater Than 1 Result Found -->
+            {% else %}
+            <h3 class="heading-tertiary pt-5">Your search for "
+                <span>{{ search_query }}</span>" produced 
+                <span>{{ results_count }}</span> search results
+            </h3>
+            {% endif %}
 
-        <!-- Result Cards -->
-        <div class="row pt-3 u-margin-bottom-large">
-            {% for result in results %}
-            <div class="col-sm-12 col-md-3 my-3">
-                <div class="card card_recipe">{% if result.image %}
-                    <img src="{{ result.image }}" alt="Recipe Image" class="card_img img-fluid" lazyload="on">
-                    {% else %}
-                    <img src="{{ url_for('static', filename='img/recipe-placeholder.jpg') }}" class="card_img img-fluid" alt="Recipe" lazyload="on">{% endif %}
-                    <div class="card-img-overlay">
-                        <h6 class="card_title">{{ result.recipe_name }}</h6>
+            <!-- Result Cards -->
+            <div class="row pt-3 u-margin-bottom-large">
+                {% for result in results %}
+                <div class="col-sm-12 col-md-3 my-3">
+                    <div class="card card_recipe">
+                        {% if result.image %}
+                        <img src="{{ result.image }}" alt="Recipe Image" class="card_img img-fluid" lazyload="on">
+                        {% else %}
+                        <img src="{{ url_for('static', filename='img/recipe-placeholder.jpg') }}" class="card_img img-fluid" alt="Recipe" lazyload="on">
+                        {% endif %}
+                        <div class="card-img-overlay">
+                            <h6 class="card_title">{{ result.recipe_name }}</h6>
+                        </div>
+                        <a href="{{ url_for('recipes.recipe', recipe_id=result._id) }}"></a>
                     </div>
-                    <a href="{{ url_for('recipes.recipe', recipe_id=result._id) }}"></a>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
-        </div>
 
-        <!-- Result Pagination -->
-        <nav aria-label="pagination">
-            <ul class="pagination pagination-lg justify-content-center">
-                {% for results_page in results_pages %} 
-                    {% if results_page == current_page %}
-                <li class="page-item active"> <a class="page-link">{{ results_page }}</a>
-                </li>
-                {% else %}
-                <li class="page-item"> <a class="page-link" href="{{ url_for('recipes.search', search_query=search_query, current_page=results_page) }}">{{ results_page }}</a>
-                </li>
-                {% endif %} {% endfor %}
-            </ul>
-        </nav>
-        </div>
-        
+            <!-- Result Pagination -->
+            <nav aria-label="pagination">
+                <ul class="pagination pagination-lg justify-content-center">
+                    {% for results_page in results_pages %} 
+                        {% if results_page == current_page %}
+                    <li class="page-item active"> <a class="page-link">{{ results_page }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item"> <a class="page-link" href="{{ url_for('recipes.search', search_query=search_query, current_page=results_page) }}">{{ results_page }}</a>
+                    </li>
+                    {% endif %} {% endfor %}
+                </ul>
+            </nav>
+        </div>  
     </div>
 </section>
 

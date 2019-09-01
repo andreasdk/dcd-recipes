@@ -3,6 +3,7 @@
 {% block content %}
 
 <section class="pt-5">
+    <!--Banner Image-->
     <img src="{{ url_for('static', filename='img/recipes.jpg') }}" class="img-fluid" alt="Recipe" lazyload="on">
     
 
@@ -12,20 +13,22 @@
         </div>
 
         <div class="col-12 pt-3">
+            <!--Search Bar-->
             <form action="{{ url_for('recipes.search', search_query=search_query, current_page=current_page) }}" class="search pt-5">
                 <input type="text" class="search__input" id="search_query" name="search_query" placeholder="Search recipes">
                 <button class="search__button">
                     <i class="fas fa-search search__icon"></i>
                 </button>
             </form>
-        </div>
-        
+        </div>  
     </div>
+    <!--Recipe Cards-->
     <div class="row u-margin-bottom-large">
         {% for recipe in recipes %}
             {% include "includes/_cards.html" %}
         {% endfor %}
     </div>
+    <!--Pagination-->
     <nav aria-label="pagination">
         <ul class="pagination pagination-lg justify-content-center">
             {% for page_number in pages %} {% if page_number == current_page %}
