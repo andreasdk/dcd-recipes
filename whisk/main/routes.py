@@ -18,11 +18,13 @@ main = Blueprint('main', __name__)
 @main.route("/home")
 def home():
 
-    per_page = 4
-    current_page = int(request.args.get('current_page', 1))
-    total = coll_recipes.count()
-    pages = range(1, int(math.ceil(total / per_page)) + 1)
-    recipes = coll_recipes.find().sort('_id', pymongo.DESCENDING).skip(
-        (current_page - 1)*per_page).limit(per_page)
+     """
+    Homepage, 8 random recipes from collection are displayed 
+    as cards - each linking to individual recipe
+    """
 
-    return render_template('home.html', recipes=recipes, title="Whisk", current_page=current_page, pages=pages)
+    random_recipes = (
+        [recipe for recipe in coll_recipes.aggregate([
+            {"$sample": {"size": 8}}])])
+
+    return render_template('home.html', random_recipes=random_recipes, title="Whisk", )
