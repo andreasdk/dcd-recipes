@@ -50,7 +50,7 @@
             <img class="img-fluid" src="{{ recipe.image }}" alt="recipe image">
             {% else %}
             <!--Else display placeholder recipe image-->
-            <img src="{{ url_for('static', filename='img/recipe-placeholder.jpg') }}" class="img-fluid" alt="Recipe" loading="lazy">
+            <img src="{{ url_for('static', filename='img/recipe-placeholder.jpg') }}" class="img-fluid" alt="Recipe">
             {% endif %}
         </div>
     </div>
