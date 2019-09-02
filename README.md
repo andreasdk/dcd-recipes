@@ -285,6 +285,7 @@ To test the search function, I searched with keywords that should have returned 
 
 
 **CSS**
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - WC3 does not recognize CSS variables, and also threw up errors for some -webkit pseudo element selectors. The rest of the CSS validates without error.
 
 **JavaScript**
 -[Esprima](https://esprima.org/demo/validate.html)
