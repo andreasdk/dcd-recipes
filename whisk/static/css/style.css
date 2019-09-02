@@ -63,7 +63,7 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
 }
-
+/**When user highlights text, the bg is the primary color and the text is white**/
 ::selection {
   background-color: var(--primary-color);
   color: var(--white-color);
@@ -76,7 +76,7 @@ body {
   margin-bottom: 3rem;
   text-transform: uppercase;
 }
-
+/**Used on homepage header**/
 .heading-primary-main {
   color: var(--grey-color-light-1);
   display: block;
@@ -85,7 +85,7 @@ body {
   letter-spacing: 1.25rem;
   margin-left:.25rem;
 }
-
+/**Used on homepage header**/
 .heading-primary-sub {
   color: var(--grey-color-light-1);
   display: block;
@@ -128,20 +128,7 @@ body {
   } 
 }
 
-.heading-tertiary {
-  color: var(--secondary-color);
-  font-size: 1.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.heading-form {
-  color: var(--lightcolor);
-  font-size: 3.5rem;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
+/**Used on error pages**/
 .heading-error-main {
   color: var(--grey-color-dark-3);
   display: block;
@@ -150,7 +137,7 @@ body {
   letter-spacing: 1.25rem;
   margin-left:.25rem;
 }
-
+/**Used on error pages**/
 .heading-error-sub {
   color: var(--grey-color-dark-3);
   display: block;
@@ -198,7 +185,7 @@ body {
   padding-top: 5rem;
 }
 /***Navbar**/
-/**Changes navbar background color on scroll**/
+/**Navbar background color**/
 #navbar__whisk {
   background-color: var(--grey-color-dark-3);
 }
@@ -210,7 +197,7 @@ border-radius: 50%;
 height: 3.5rem;
 width: 3.5rem;
 }
-
+/**Sets navbar hover animation**/
 .navbar-light .navbar-nav .nav-link:link,
 .navbar-light .navbar-nav .nav-link:visited {
 background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #f7f7f7 50%);
@@ -227,7 +214,6 @@ transition: all .4s;
 
 
 /**Navbar link items animation on hover**/
-
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link:active {
 background-position: 100%;
@@ -237,13 +223,12 @@ transform: translateX(.5rem);
 
 
 /**Navbar icons display and margin**/
-
 .nav-link span {
 display: inline-block;
 margin-right: 1rem;
 }
 
-/***Header**/
+/***Homepage Header**/
 .header {
   background-image: linear-gradient(to right bottom, rgba(70, 52, 78, 0.8), rgba(90, 85, 96, 0.8));
   height: 85vh;
@@ -286,7 +271,6 @@ margin-right: 1rem;
 }
 
 /**Gives slight box-shadow on hover**/
-
 .btn:hover {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
@@ -306,7 +290,7 @@ margin-right: 1rem;
   background-color: var(--primary-color);
   color: var(--white-color);
 }
-
+/**Rectangular edit button**/
 .btn-edit {
   background-color: var(--primary-color);
   color: var(--white-color);
@@ -317,7 +301,7 @@ margin-right: 1rem;
 .btn-edit:hover {
   color: var(--white-color);
 }
-
+/**Rectangular delete button**/
 .btn-delete {
   background-color: var(--secondary-color-dark);
   color: var(--white-color);
@@ -330,16 +314,16 @@ margin-right: 1rem;
 }
 /**Flash Message**/
 .flash-message {
-  color: var(--backgroundcolor);
   font-size: 1.5rem;
 }
 /**Pagination**/
+/**Increases default Bootstrap pagination size**/
 .pagination-lg .page-link {
   padding: .75rem 1.5rem;
   font-size: 1.75rem;
   line-height: 1.5;
 }
-
+/**FSet pagination btn bg and border color to primary color**/
 .page-item.active .page-link { 
   background-color: var(--primary-color);
   border-color: var(--primary-color);
@@ -356,7 +340,9 @@ margin-right: 1rem;
   font-size: 3.5rem;
   color: var(--white-color);
 }
-
+/**Gives padding to login, register and change password forms. 
+Gives gradient background color
+**/
 .section-reglog {
   padding: 15rem 0;
   background-image: linear-gradient(to right bottom, var(--primary-color-light), var(--primary-color-dark));
@@ -368,7 +354,9 @@ margin-right: 1rem;
     padding: 10rem 0;
   }
 }
-
+/**Sets the form background image, white semi transparent background
+Completely transparent at 50% of width at 105degree angle.
+**/
 .reglog {
   background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/login.jpg);
   background-size: 100%;
@@ -394,23 +382,23 @@ margin-right: 1rem;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/login.jpg);
   }
 }
-
+/**Sets form to take up 50% of container by default**/
 .reglog__form {
   width: 50%;
   padding: 6rem;
 }
-  @media only screen and (max-width: 75em) {
-    .reglog__form {
-      width: 65%;
-    }
+@media only screen and (max-width: 75em) {
+  .reglog__form {
+    width: 65%;
   }
+}
   
-  @media only screen and (max-width: 56.25em) {
-    .reglog__form {
-      width: 100%;
-    }
+@media only screen and (max-width: 56.25em) {
+  .reglog__form {
+    width: 100%;
   }
-
+}
+/**Sets registration/login/change password form input**/
 .form__input {
   font-size: 1.5rem;
   font-family: inherit;
@@ -429,41 +417,32 @@ margin-right: 1rem;
     width: 100%;
   }
 }
-
+/**Bottom border when registration/login form input in focus**/
 .form__input:focus {
   outline: none;
   border-bottom: 5px solid var(--primary-color);
   box-shadow: 0.1rem 1rem rgba(0, 0, 0, 0.1);
 }
-
+/**Bottom border when registration/login form is invalid and in focus**/
 .form__input:focus:invalid {
   border-bottom: 3px solid var(--secondary-color-dark);
 }
-
-.form__input::-webkit-input-placeholder {
-  color: var(--grey-color-dark-2);
-}
-
-.form-input {
+/**Sets recipe form input**/
+.recipe-form-input {
   font-family: inherit;
   font-size: 2.5rem;
   margin-top: 2rem;
   width: 100%;
 }
-
-.form-input:focus {
+/**Bottom border recipe input in focus**/
+.recipe-form-input:focus {
   outline: none;
-  border-bottom: 5px solid var(--lightcolor);
+  border-bottom: 5px solid var(--white-color);
   box-shadow: 0.1rem 1rem rgba(0, 0, 0, 0.1);
 }
-
-.form-input:focus:invalid {
-  border-bottom: 3px solid #ff0000;
-}
-
-
-.form-input-field {
-  width: 100%;
+/**Bottom border recipe input in focus**/
+.recipe-form-input:focus:invalid {
+  border-bottom: 3px solid var(--secondary-color-dark);
 }
 
 .search {
