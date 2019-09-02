@@ -128,6 +128,13 @@ body {
   } 
 }
 
+.heading-tertiary {
+  color: var(--secondary-color);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 /**Used on error pages**/
 .heading-error-main {
   color: var(--grey-color-dark-3);
