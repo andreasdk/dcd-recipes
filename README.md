@@ -181,6 +181,9 @@ Due to time constraints, there are some additional features I wasn't able to imp
 **Delete Account**
 - I would like for a user to be able to delete their account and thus remove all their recipes from the database.
 
+**Delete Multiple Recipes At A Time**
+- Deleting each recipe one by one via the recipe page would become quickly tedious the more recipes a user adds. I would like to update the delete recipe features so that it would be possible to delete many at once.
+
 ##### back to [top](#table-of-contents)
 
 ---
@@ -268,11 +271,17 @@ Individual recipes were tested by clicking on the recipe cards. The recipe data 
 **Search**
 To test the search function, I searched with keywords that should have returned results as well as searching with irrelevant keywords. I also tested the pagination to make sure the search keywords carried over to the selected page, and that the window automatically scrolled to the search results on the selected page.
 
+**Development**
+
+- I developed the app in sprints, creating one route and function at a time. I would test the function, make sure that it worked as intended and then moved on the next route. My project developed in scope from the initial layout I had in mind. I initially stored the ingredients and recipe directions as strings in the database before I found out that they could be stored as an array using the splitlines() method and then iterated over to create a list. I also displayed the recipes on the homepage as well as the recipes page, but that felt redundant so I changed it so a small collection of random recipe cards displays on the homepage every time the page is refreshed. I had tested using the new Chrome feature loading=lazy on the images, but it causes the recipe cards not to render properly so I removed it.
+
+- I created Git branches for the different functionalities of the website, and merged these branches with the master, which is the deployed branch.
+
 ### Validators
 
 
 **HTML**
-- [W3C HTML Validator](https://validator.w3.org) - WC3 does not understand the Jinja templating language, so throws up errors for that. It also does not currently understand loading="lazy" as this is a new Chrome feature since version 76. Other than the Jinja errors, the code is validated.
+- [W3C HTML Validator](https://validator.w3.org) - WC3 does not understand the Jinja templating language, so throws up errors for that. Other than the Jinja errors, the code is validated.
 
 
 **CSS**
@@ -281,6 +290,16 @@ To test the search function, I searched with keywords that should have returned 
 -[Esprima](https://esprima.org/demo/validate.html)
  -"Code is syntactically valid."
  -There is only one line of JS in this app, for scrolling to the search results in the search pagination
+
+ ### Known Issues
+
+-I had tested using the new Chrome feature loading=lazy on the images, but it causes the recipe cards not to render properly so I removed it.
+
+- I am  using WTForms to handle the website forms. I discovered during development that there is a [known issue](https://github.com/lepture/flask-wtf/issues/348) with setting a disabled default value in SelectField. If the user does not select an option on the recipe form, the value 'None' is passed to the entry in the collection. Any of the workarounds I tried have yet to fix this issue.
+
+##### back to [top](#table-of-contents)
+
+---
 
 ## Deployment
 
