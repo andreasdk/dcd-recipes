@@ -25,6 +25,18 @@
   padding: 0;
 }
 
+
+/*
+1em = 16px
+
+Media Queries are cdeclared in em
+56.25em = 900px
+75em = 1200px
+112.5em = 1800px
+*/
+
+
+/**Makes default font-size 10px**/
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -59,7 +71,6 @@ body {
 
 
 /*Headings*/
-
 .heading-primary {
   color: var(--primary-color);
   margin-bottom: 3rem;
@@ -106,7 +117,6 @@ body {
   text-transform: uppercase;
 }
 
-
 @media only screen and (max-width: 56.25em) {
   .heading-secondary {
     font-size: 3rem; 
@@ -117,7 +127,6 @@ body {
     font-size: 2.5rem; 
   } 
 }
-
 
 .heading-tertiary {
   color: var(--secondary-color);
@@ -160,7 +169,7 @@ body {
   margin-bottom: 8rem;
 }
 @media only screen and (max-width: 56.25em) {
-  .u-margin-bottom-big {
+  .u-margin-bottom-large {
     margin-bottom: 5rem !important; } 
 }
 
@@ -169,7 +178,10 @@ body {
 }
 @media only screen and (max-width: 56.25em) {
   .u-margin-bottom-medium {
-    margin-bottom: 3rem !important; } }
+    margin-bottom: 3rem !important;
+  }
+}
+
 .u-margin-bottom-small {
   margin-bottom: 1.5rem;
 }
@@ -316,8 +328,6 @@ margin-right: 1rem;
 .btn-delete:hover {
   color: var(--white-color);
 }
-
-
 /**Flash Message**/
 .flash-message {
   color: var(--backgroundcolor);
@@ -338,7 +348,6 @@ margin-right: 1rem;
 .page-item .page-link { 
   color: var(--primary-color);
 }
-
 /**Forms**/
 .close-icon {
   position: fixed;
@@ -356,7 +365,9 @@ margin-right: 1rem;
 
 @media only screen and (max-width: 56.25em) {
   .section-reglog {
-    padding: 10rem 0; } }
+    padding: 10rem 0;
+  }
+}
 
 .reglog {
   background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/login.jpg);
@@ -374,20 +385,31 @@ margin-right: 1rem;
 @media only screen and (max-width: 75em) {
   .reglog {
     background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 65%, transparent 65%), url(../img/login.jpg);
-    background-size: cover; } }
+    background-size: cover;
+  }
+}
+
 @media only screen and (max-width: 56.25em) {
   .reglog {
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/login.jpg); } }
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/login.jpg);
+  }
+}
+
 .reglog__form {
   width: 50%;
-  padding: 6rem; }
+  padding: 6rem;
+}
   @media only screen and (max-width: 75em) {
     .reglog__form {
-      width: 65%; } }
+      width: 65%;
+    }
+  }
+  
   @media only screen and (max-width: 56.25em) {
     .reglog__form {
-      width: 100%; } 
-}
+      width: 100%;
+    }
+  }
 
 .form__input {
   font-size: 1.5rem;
@@ -400,33 +422,26 @@ margin-right: 1rem;
   border-bottom: 3px solid transparent;
   width: 90%;
   display: block;
-  transition: all .3s; }
-  @media only screen and (max-width: 56.25em) {
-    .form__input {
-      width: 100%; } }
-  .form__input:focus {
-    outline: none;
-  border-bottom: 5px solid var(--primary-color);
-  box-shadow: 0.1rem 1rem rgba(0, 0, 0, 0.1);}
-  .form__input:focus:invalid {
-    border-bottom: 3px solid var(--secondary-color-dark); }
-  .form__input::-webkit-input-placeholder {
-    color: var(--grey-color-dark-2); }
-
-.form-container {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  text-align: center;
-  transform: translate(-50%, -50%);
-  border-radius: 5px;
-  width: 25%;
-  height: 40rem;
+  transition: all .3s; 
+}
+@media only screen and (max-width: 56.25em) {
+  .form__input {
+    width: 100%;
+  }
 }
 
-.form-inner{ 
-  width: 100%; 
-  height: 100%; 
+.form__input:focus {
+  outline: none;
+  border-bottom: 5px solid var(--primary-color);
+  box-shadow: 0.1rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.form__input:focus:invalid {
+  border-bottom: 3px solid var(--secondary-color-dark);
+}
+
+.form__input::-webkit-input-placeholder {
+  color: var(--grey-color-dark-2);
 }
 
 .form-input {
@@ -461,7 +476,9 @@ margin-right: 1rem;
   .search {
     order: 1;
     flex: 0 0 100%;
-    background-color: var(--color-grey-light-2); } }
+    background-color: var(--color-grey-light-2); 
+  }
+}
 
 .search__input {
   font-family: inherit;
@@ -473,23 +490,28 @@ margin-right: 1rem;
   border-radius: 100px;
   width: 50%;
   transition: all .2s;
-  margin-right: -3.25rem; }
-  @media only screen and (max-width: 31.25em) {
-    .search__input {
-      width: 90%; } }
+  margin-right: -3.25rem; 
+}
 
-  .search__button {
-    border: none;
-    background-color: var(--color-grey-light-2); }
-    .search__button:focus {
-      outline: none; }
-    .search__button:active {
-      transform: translateY(2px); }
-
-      .search__icon {
-        height: 1.5rem;
-        fill: var(--color-grey-dark-3); }
-
+@media only screen and (max-width: 31.25em) {
+  .search__input {
+    width: 90%;
+  }
+}
+.search__button {
+  border: none;
+  background-color: var(--color-grey-light-2); 
+}
+.search__button:focus {
+  outline: none; 
+}
+.search__button:active {
+  transform: translateY(2px); 
+}
+.search__icon {
+  height: 1.5rem;
+  fill: var(--color-grey-dark-3);
+}
 /**Account**/
 .user_account {
   padding: 20rem 0;
@@ -514,7 +536,6 @@ margin-right: 1rem;
   background: var(--backgroundcolor);
   min-height: 46rem;
 }
-
 /**Add Recipe**/
 .recipe-form {
   background-image: linear-gradient(to right bottom, var(--primary-color-light), var(--primary-color-dark));
@@ -540,8 +561,6 @@ label {
   font-size: 2rem;
   font-family:var(--secondaryfont);
 }
-
-
 /**Recipe Card**/
 .card {
   border: none;
@@ -577,7 +596,6 @@ label {
   padding: .5rem;
   cursor: pointer;
 }
-
 /**Single Recipe Page**/
 .recipe_list {
   font-size: 2rem;
@@ -593,7 +611,6 @@ label {
   background-size: cover;
   height: 95vh; 
 }
-
 /**Footer**/
 /**Centering footer items, and giving footer minimum height**/
 .footer {
@@ -607,29 +624,4 @@ label {
   color: var(--grey-color-light-1);
   font-size: 4rem;
   padding-top: 3rem;
-}
-
-/** Media Queries **/
-@media only screen and (min-width : 280px) {
-  .form-container{ width: 90% }
-}
-
-@media only screen and (min-width : 480px) {
-  .form-container{ width: 60% }
-}
-
-@media only screen and (min-width : 768px) {
-  .form-container{ width: 40% }
-}
-
-@media only screen and (min-width : 992px) {
-  .form-container{ width: 30% }
-}
-
-
-/* Media Queries */
-@media (max-width: 768px) {
-  .navbar {
-    text-align: center;
-  }
 }
