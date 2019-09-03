@@ -3,10 +3,14 @@
 {% block content %}
 
 <section class="pt-5">
-    <!--Banner Image-->
-    <img src="{{ url_for('static', filename='img/recipes.jpg') }}" class="img-fluid" alt="Recipe">
+    <!--Banner Image And Text-->
+    <div class="banner-img-container">
+        <img src="{{ url_for('static', filename='img/recipes.jpg') }}" class="img-fluid" alt="Recipe">
+        <div class="banner-img-overlay">
+            <h1 class="banner-img-title heading-primary text-white">Recipes</h1>   
+        </div>
+    </div>
     
-
     <div class="row u-center-text u-margin-bottom-large u-padding-top">
         <div class="col-12 pt-5">
             <h2 class="heading-secondary pt-5">Search Our Recipes</h2>

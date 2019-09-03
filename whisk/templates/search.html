@@ -2,7 +2,14 @@
 {% block nav %} {% include 'includes/_navbar.html' %} {% endblock %}
 {% block content %}
 <section class="pt-5">
-    <img src="{{ url_for('static', filename='img/search.jpg') }}" class="img-fluid" alt="Recipe">
+    <!--Banner Image And Text-->
+    <div class="banner-img-container">
+        <img src="{{ url_for('static', filename='img/search.jpg') }}" class="img-fluid" alt="Recipe">
+        <div class="banner-img-overlay">
+            <h1 class="banner-img-title heading-primary text-white">Search</h1>   
+        </div>
+    </div>
+    
     <div class="container pt-5">
         <div class="row">
             <div class="col-12 pt-5">
@@ -16,24 +23,28 @@
         
         <div id="search-results">
             <!-- Search Results Count -->
+            {% if search_query %}
             <!-- Zero Results -->
-            {% if total_results == 0 %}
+                {% if total_results == 0 %}
             <h3 class="heading-tertiary pt-5">Sorry no results found</h3>
 
             <!-- 1 Result Found -->
-            {% elif results_count==1 %}
+                {% elif results_count==1 %}
             <h3 class="heading-tertiary pt-5">Your search for "
                 <span>{{ search_query }}</span>" produced 
                 <span>1</span> search result
             </h3>
 
             <!-- Greater Than 1 Result Found -->
-            {% else %}
+                {% else %}
             <h3 class="heading-tertiary pt-5">Your search for "
                 <span>{{ search_query }}</span>" produced 
                 <span>{{ results_count }}</span> search results
             </h3>
+                {% endif %} 
             {% endif %}
+
+
 
             <!-- Result Cards -->
             <div class="row pt-3 u-margin-bottom-large">
