@@ -479,6 +479,7 @@ Completely transparent at 50% of width at 105degree angle.
 }
 .search__button {
   border: none;
+  background-color: var(--grey-color-light-1);
 }
 .search__button:focus {
   outline: none; 
