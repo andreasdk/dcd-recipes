@@ -451,21 +451,14 @@ Completely transparent at 50% of width at 105degree angle.
 .recipe-form-input:focus:invalid {
   border-bottom: 3px solid var(--secondary-color-dark);
 }
-
+/**Bottom border recipe input in focus**/
 .search {
-  flex: 0 0 40%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-@media only screen and (max-width: 31.25em) {
-  .search {
-    order: 1;
-    flex: 0 0 100%;
-    background-color: var(--color-grey-light-2); 
-  }
-}
 
+/**Search Bar Style**/
 .search__input {
   font-family: inherit;
   font-size: 1.5rem;
@@ -486,7 +479,6 @@ Completely transparent at 50% of width at 105degree angle.
 }
 .search__button {
   border: none;
-  background-color: var(--color-grey-light-2); 
 }
 .search__button:focus {
   outline: none; 
@@ -495,17 +487,16 @@ Completely transparent at 50% of width at 105degree angle.
   transform: translateY(2px); 
 }
 .search__icon {
-  height: 1.5rem;
-  fill: var(--color-grey-dark-3);
+  font-size: 2rem;
 }
-/**Account**/
+/**Account Page**/
 .user_account {
   padding: 20rem 0;
 }
-
+/**Account Sidebar**/
 .account_sidebar {
   padding: 2rem 0 0 0;
-  background: #fff;
+  background: var(--white-color);
   text-align: center;
 }
 
@@ -516,17 +507,17 @@ Completely transparent at 50% of width at 105degree angle.
 .account_username {
   margin-top: 2rem;
 }
-
+/**Account Content**/
 .account_content {
   padding: 2rem;
-  background: var(--backgroundcolor);
+  background: var(--white-color);
   min-height: 46rem;
 }
 /**Add Recipe**/
 .recipe-form {
   background-image: linear-gradient(to right bottom, var(--primary-color-light), var(--primary-color-dark));
 }
-
+/**Recipe Form Labels**/
 label {
   color: var(--white-color);
   font-family: var(--secondaryfont);
@@ -537,7 +528,7 @@ label {
 .recipe_container {
   padding-top: 10rem;
 }
-
+/**Icon sizing**/
 .recipe_icon {
   font-size: 2.5rem;
 }
@@ -561,7 +552,7 @@ label {
   position: relative;
   width: 100%;
 }
-
+/**Sets card link position**/
 .card_recipe a {
   bottom: 0;
   left: 0;
@@ -569,7 +560,7 @@ label {
   right: 0;
   top: 0;
 }
-
+/**Sets recipe title styles**/
 .card_title {
   bottom: 0;
   color: var(--grey-color-light-1);
@@ -590,7 +581,7 @@ label {
 .recipe-ul-list {
   list-style-type: none;
 }
-
+/**Error 403, 404, 500 pages**/
 .error-container {
   background-image: url(../img/errors/error.png);
   background-position: center center;
