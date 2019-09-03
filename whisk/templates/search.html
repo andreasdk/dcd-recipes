@@ -41,9 +41,9 @@
                 <div class="col-sm-12 col-md-3 my-3">
                     <div class="card card_recipe">
                         {% if result.image %}
-                        <img src="{{ result.image }}" alt="Recipe Image" class="card_img img-fluid" loading="lazy">
+                        <img src="{{ result.image }}" alt="Recipe Image" class="card_img img-fluid">
                         {% else %}
-                        <img src="{{ url_for('static', filename='img/recipe-placeholder.jpg') }}" class="card_img img-fluid" alt="Recipe" loading="lazy">
+                        <img src="{{ url_for('static', filename='img/recipe-placeholder.jpg') }}" class="card_img img-fluid" alt="Recipe">
                         {% endif %}
                         <div class="card-img-overlay">
                             <h6 class="card_title">{{ result.recipe_name }}</h6>
