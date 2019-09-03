@@ -296,7 +296,7 @@ To test the search function, I searched with keywords that should have returned 
 
 -I had tested using the new Chrome feature loading=lazy on the images, but it causes the recipe cards not to render properly so I removed it.
 
-- I am  using WTForms to handle the website forms. I discovered during development that there is a [known issue](https://github.com/lepture/flask-wtf/issues/348) with setting a disabled default value in SelectField. If the user does not select an option on the recipe form, the value 'None' is passed to the entry in the collection. Any of the workarounds I tried have yet to fix this issue.
+- I am  using WTForms to handle the website forms. I discovered during development that there is a [known issue](https://github.com/lepture/flask-wtf/issues/348) with setting a disabled default value in SelectField. If the user does not select an option on the recipe form, the value 'None' is passed to the entry in the collection. Any of the workarounds I tried have yet to fix this issue. To fix this in the frontend, I made an if statement **{% if recipe.diet_type=="None" %}** then display None Specified, else display the selected diet type (or recipe type).
 
 ##### back to [top](#table-of-contents)
 
