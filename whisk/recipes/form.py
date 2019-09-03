@@ -10,15 +10,22 @@ class RecipeForm(FlaskForm):
                               validators=[DataRequired()])
     description = TextAreaField('Description',
                                 validators=[DataRequired()])
-    meal_type = SelectField('Meal Type', choices=[(None, ''), ('Breakfast', 'Breakfast'
-                            ), ('Lunch', 'Lunch'), ('Dinner', 'Dinner'
-                            ), ('Snack', 'Snack'), ('Dessert', 'Dessert'
-                            )], validators=[DataRequired()])
-    diet_type = SelectField('Diet Type', choices=[(None, ''), ('Dairy-Free',
-                            'Dairy-Free'), ('Gluten-Free', 'Gluten-Free'
-                            ), ('Peanut-Free', 'Peanut-Free'), ('Vegan'
-                            , 'Vegan'), ('Vegetarian', 'Vegetarian')],
-                            validators=[Optional()])
+    meal_type = SelectField('Meal Type', choices=[
+        (None, 'Select An Option'),
+        ('Breakfast', 'Breakfast'),
+        ('Lunch', 'Lunch'),
+        ('Dinner', 'Dinner'),
+        ('Snack', 'Snack'),
+        ('Dessert', 'Dessert'),
+        ], validators=[DataRequired()])
+    diet_type = SelectField('Diet Type', choices=[
+        (None, 'Select An Option'),
+        ('Dairy-Free', 'Dairy-Free'),
+        ('Gluten-Free', 'Gluten-Free'),
+        ('Peanut-Free', 'Peanut-Free'),
+        ('Vegan', 'Vegan'),
+        ('Vegetarian', 'Vegetarian'),
+        ], validators=[Optional()])
     prep_time = IntegerField('Prep Time', validators=[DataRequired()])
     time = IntegerField('Cooking Time', validators=[DataRequired()])
     image = StringField('Recipe Image', validators=[Optional()])
