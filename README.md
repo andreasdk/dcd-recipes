@@ -246,10 +246,13 @@ I made dummy recipes to test the create recipe function. I tested submitting a r
 I tested a number of recipes to make sure the edit recipe function was working correctly. When the form is successfully validated, the recipe updates with the new data.
 
 **Delete A Recipe**
-I tested the delete function on dummy recipes, and it removes the selected recipe from the database.
+I tested the delete function on dummy recipes, and it removes the selected recipes from the database.
 
 **Read A Recipe**
 Individual recipes were tested by clicking on the recipe cards. The recipe data is successfully displayed on screen. The ingredient and directions arrays are successfully iterated over and displayed as lists.
+
+**Account Page**
+The account page successfully shows user details. I made a test account with zero recipes to test the view of a new user compared to a user who has added recipes. A new user is invited to add recipes via a link to the add recipe page. An experienced user sees a list of their recipes.
 
 **Pagination**
 - Default Pagination
@@ -399,7 +402,9 @@ The website images (excluding the recipe images) were taken from the following s
 - **Recipe Placeholder Image** : [Google Image Search](http://i0.wp.com/cdn11.bigcommerce.com/s-571px4/images/stencil/original/products/1559/4041/WD413_Chef_Face_and_Hat_Wall_Decal_Art_Kitchen_Decor_Red_Room_Pic__57934.1464377687.JPG?c\u003d2\u0026imbypass\u003don?strip=all)
 - **User Avatars** : [Iconfinder](https://www.iconfinder.com)
 - **Register, Login, Change Password form bg-image** : [Unsplash](https://unsplash.com/photos/QnNqGoCnBg0)
+- **Recipes and Search page banner images** : [Unsplash](https://unsplash.com/)
 - **Mockup images used in README** : [techsini](https://techsini.com/multi-mockup/)
+- **Error Pages Image** : [Canva](https://www.canva.com//)
 
 The homepage header video came from:
 - **Coverr** : [Coverr](https://coverr.co/videos/Pinangat%20Making)
