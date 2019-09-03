@@ -94,6 +94,12 @@ I used a charcoal color for the navbar and header, and then a mid green color (#
     - [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed)
     - [Cabin](https://fonts.google.com/specimen/Cabin)
 
+### Wireframes
+
+I used [Balsamiq Wireframes](https://balsamiq.com/) to create my wireframes. I find it very user friendly, it's simple to quickly make an outline of the pages. I updated the design for the login/registration/change password pages because I didn't really like the initial design once styled on screen.
+
+My wireframes for this project can be found [here](https://github.com/andreasdk/dcd-recipes/tree/master/whisk/wireframes).
+
 ##### back to [top](#table-of-contents)
 
 
