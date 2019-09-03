@@ -569,10 +569,8 @@ label {
   font-weight: 800;
   margin-bottom: 1rem;
   position: absolute;
-  z-index: 1;
   background-color: var(--grey-color-dark-3);
   padding: .5rem;
-  cursor: pointer;
 }
 /**Single Recipe Page**/
 .recipe_list {
