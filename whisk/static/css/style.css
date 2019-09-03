@@ -452,6 +452,18 @@ Completely transparent at 50% of width at 105degree angle.
   border-bottom: 3px solid var(--secondary-color-dark);
 }
 /**Bottom border recipe input in focus**/
+.banner-img-container {
+  position: relative;
+}
+
+.banner-img-title {
+  background-color: var(--grey-color-dark-3);
+  font-size: 3.5rem;
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+}
 .search {
   display: flex;
   align-items: center;
