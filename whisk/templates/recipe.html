@@ -12,18 +12,24 @@
                 <div class="col-6">
                     <i class="fas fa-utensil-spoon recipe_icon"></i>
                     <h4>Meal Type</h4>
+                    <!--If recipe diet type left at default value-->
+                    {% if recipe.meal_type=="None" %}
+                    <p class="paragraph">None Specified</p>
+                    {% else %}
+                    <!--Else display selected diet type-->
                     <p class="paragraph">{{ recipe.meal_type }}</p>
+                    {% endif %}
                 </div>
                 <!--Diet Type-->
                 <div class="col-6">
                     <i class="fas fa-check-circle recipe_icon"></i>
                     <h4>Diet Type</h4>
-                    <!--If recipe diet type exists in DB-->
-                    {% if recipe.diet_type %}
-                    <p class="paragraph">{{ recipe.diet_type }}</p>
-                    {% else %}
-                    <!--Else display text so field is not blank-->
+                    <!--If recipe diet type left at default value-->
+                    {% if recipe.diet_type=="None" %}
                     <p class="paragraph">None Specified</p>
+                    {% else %}
+                    <!--Else display selected diet type-->
+                    <p class="paragraph">{{ recipe.diet_type }}</p>
                     {% endif %}
                 </div>
             </div>
