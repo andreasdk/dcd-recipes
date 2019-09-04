@@ -242,6 +242,7 @@ margin-right: 1rem;
 }
 
 .bg-video {
+  background-image: url(../img/video-bg.png);
   top: 0;
   left: 0;
   height: 100%;
