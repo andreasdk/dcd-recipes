@@ -297,7 +297,7 @@ I tested across a range of browsers using [BrowserStack](https://www.browserstac
 - Opera *v.62*
 - Internet Explorer *v.11*
 
-I also tested responsiveness using a Lenovo Yoga in laptop and tablet mode, as well as on a Huawei P20 phone. The website renders poorly on Internet Explorer, but renders as intended on modern browsers.
+I also tested responsiveness using a Lenovo Yoga in laptop and tablet mode, as well as on a Huawei P20 phone. The website renders poorly on Internet Explorer, but renders as intended on modern browsers. I noticed a play button appeared in the homepage header video in iOS, so I set a bg-image for the video container in case the video didn't render.
 
 
 ### Validators
