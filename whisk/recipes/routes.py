@@ -203,9 +203,11 @@ def delete_recipe(recipe_id):
 def search():
 
     """
-    Allows a user to search for recipes. All fields in recipe are searchable
-    due to Wildcard Index:
-    coll_recipes.create_index([("$**", pymongo.TEXT)])
+    Allows a user to search for recipes. Recipe name, meal type and diet
+    type are searchable text indexes:
+    db.recipes.createIndex({recipe_name: "text",diet_type: "text", 
+    meal_type: "text"})
+
     """
 
     #  Results per page
