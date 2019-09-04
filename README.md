@@ -271,7 +271,7 @@ The account page successfully shows user details. I made a test account with zer
 
 - Search Pagination
     - Recipe cards per page successfully limited to 8
-    - No pagination is results == 0
+    - No pagination if results == 0
     - 1 paginated page if result = 1
     - 1 paginated page if results < 8
     - Correct number of pagination buttons if results > 8
@@ -286,6 +286,20 @@ To test the search function, I searched with keywords that should have returned 
 
 - I created Git branches for the different functionalities of the website, and merged these branches with the master, which is the deployed branch.
 
+### Compatibility
+
+I tested across a range of browsers using [BrowserStack](https://www.browserstack.com/). 
+
+- Chrome *v.74*
+- Edge *v.18*
+- Firefox *v.67*
+- Safari *v.12* (Mojave)
+- Opera *v.62*
+- Internet Explorer *v.11*
+
+I also tested responsiveness using a Lenovo Yoga in laptop and tablet mode, as well as on a Huawei P20 phone. I changed the homepage video header style as object-fit has poor support on older browsers. I changed the style to width:100%, height: auto. to achieve the intended sizing across browsers. The website renders poorly on Internet Explorer, but renders as intended on modern browsers.
+
+
 ### Validators
 
 
@@ -298,8 +312,8 @@ To test the search function, I searched with keywords that should have returned 
 
 **JavaScript**
 -[Esprima](https://esprima.org/demo/validate.html)
- -"Code is syntactically valid."
- -There is only one line of JS in this app, for scrolling to the search results in the search pagination
+  -"Code is syntactically valid."
+  -There is only one line of JS in this app, for scrolling to the search results in the search pagination
 
  ### Known Issues
 
